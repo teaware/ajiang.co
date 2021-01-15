@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useEffect, useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
+import Playing from "../components/playing";
 
 const menu = {
   open: (height = 1000) => ({
@@ -39,7 +39,7 @@ const Magic = () => {
     >
       <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
         <h1 className="font-serif text-6xl lg:text-8xl text-black mb-4">
-          阿江 <span className="char otter">🦦</span>
+          water <span className="char otter">🦦</span>
         </h1>
         <p className="block self-end ml-auto text-xl font-mono">
           <Link href="https://ajiang.co">
@@ -51,6 +51,9 @@ const Magic = () => {
             </a>
           </Link>
         </p>
+      </div>
+      <div className="absolute left-0 bottom-0 w-full flex justify-center">
+        <Playing />
       </div>
       <motion.div
         className="w-full h-full bg-gray-600 absolute top-0 left-0"
@@ -87,7 +90,6 @@ const Items = () => (
     className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
   >
     <motion.ul variants={vItems}>
-      <Me />
       {itemIds.map((i) => (
         <Item i={i} key={i} />
       ))}
@@ -116,33 +118,6 @@ const vItem = {
 };
 
 const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
-
-const Me = () => {
-  return (
-    <motion.li
-      variants={vItem}
-      whileHover={{ scale: 1.1 }}
-      whileTap={{ scale: 0.95 }}
-    >
-      <Link href="https://ajiang.co">
-        <a
-          className="flex items-center w-60 h-10 mb-6 text-white"
-          target="_blank"
-        >
-          <div className="w-10 h-10 rounded-full mr-5">
-            <Image
-              className="object-cover w-full h-full rounded-full"
-              src="/img/me.jpg"
-              width="600"
-              height="600"
-            />
-          </div>
-          <div className="w-40 h-5 rounded-md">water 🦦</div>
-        </a>
-      </Link>
-    </motion.li>
-  );
-};
 
 const Item = ({ i }) => {
   const style = { border: `2px solid ${colors[i]}` };
