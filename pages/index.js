@@ -42,13 +42,12 @@ const Magic = () => {
           阿江 <span className="char otter">🦦</span>
         </h1>
         <p className="block self-end ml-auto text-xl font-mono">
-          visit my{" "}
           <Link href="https://ajiang.co">
             <a
               target="_blank"
               className="text-green-900 bg-white hover:text-white hover:bg-green-900"
             >
-              blog
+              go to my blog
             </a>
           </Link>
         </p>
