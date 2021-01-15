@@ -3,7 +3,6 @@ import { useEffect, useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
 import Playing from "../components/playing";
-import TopTracks from "../components/top-tracks";
 
 const menu = {
   open: (height = 1000) => ({
@@ -53,7 +52,6 @@ const Magic = () => {
           </Link>
         </p>
       </div>
-      <TopTracks />
       <div className="absolute left-0 bottom-0 w-full flex justify-center">
         <Playing />
       </div>
