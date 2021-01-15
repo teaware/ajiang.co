@@ -216,29 +216,27 @@ export default function Home() {
         <title>阿江</title>
       </Head>
 
-      <div className="h-screen relative">
-        <div className="h-4/5 max-h-screen relative">
-          <svg
-            className="block w-full h-20 lg:h-40 max-h-screen fill-current text-green-900 absolute bottom-0 left-0"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlnsXlink="http://www.w3.org/1999/xlink"
-            viewBox="0 24 150 28"
-            preserveAspectRatio="none"
-          >
-            <defs>
-              <path
-                id="gentle-wave"
-                d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
-              />
-            </defs>
-            <g className="parallax">
-              <use xlinkHref="#gentle-wave" x={50} y={6} />
-            </g>
-          </svg>
-        </div>
-        <div className="h-1/5  bg-green-900"></div>
-        <Magic />
+      <div className="h-70vh max-h-screen relative">
+        <svg
+          className="block w-full h-20 lg:h-40 max-h-screen fill-current text-green-900 absolute bottom-0 left-0"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlnsXlink="http://www.w3.org/1999/xlink"
+          viewBox="0 24 150 28"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <path
+              id="gentle-wave"
+              d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"
+            />
+          </defs>
+          <g className="parallax">
+            <use xlinkHref="#gentle-wave" x={50} y={6} />
+          </g>
+        </svg>
       </div>
+      <div className="h-30vh  bg-green-900 -mt-px pb-px box-content" />
+      <Magic />
     </>
   );
 }
