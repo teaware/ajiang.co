@@ -3,6 +3,7 @@ import { useEffect, useRef } from "react";
 import { motion, useCycle } from "framer-motion";
 import Link from "next/link";
 import Playing from "../components/playing";
+import TopTracks from "../components/top-tracks";
 
 const menu = {
   open: (height = 1000) => ({
@@ -42,7 +43,7 @@ const Magic = () => {
           water <span className="char otter">🦦</span>
         </h1>
         <p className="block self-end ml-auto text-xl font-mono">
-          <Link href="https://ajiang.co">
+          <Link href="https://blog.ajiang.co">
             <a
               target="_blank"
               className="text-green-900 bg-white hover:text-white hover:bg-green-900"
@@ -52,6 +53,7 @@ const Magic = () => {
           </Link>
         </p>
       </div>
+      <TopTracks />
       <div className="absolute left-0 bottom-0 w-full flex justify-center">
         <Playing />
       </div>
