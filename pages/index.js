@@ -6,10 +6,10 @@ import Image from "next/image";
 
 const menu = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 2 + 200}px at calc(100% - 3rem) 3rem)`,
+    clipPath: `circle(${height * 3 + 200}px at calc(100% - 3rem) 3rem)`,
     transition: {
       type: "spring",
-      stiffness: 20,
+      stiffness: 40,
       restDelta: 2,
     },
   }),
@@ -18,7 +18,7 @@ const menu = {
     transition: {
       delay: 0.5,
       type: "spring",
-      stiffness: 400,
+      stiffness: 320,
       damping: 40,
     },
   },
@@ -31,13 +31,28 @@ const Magic = () => {
 
   return (
     <motion.div
-      className="absolute w-full h-full top-0 left-0 z-10"
+      className="absolute w-full h-full top-0 left-0 flex flex-col items-center justify-center lg:items-stretch"
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
     >
-      <motion.div className="w-full h-full bg-gray-600" variants={menu} />
+      <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
+        <h1 className="font-serif text-6xl lg:text-8xl text-black mb-4">
+          阿江 <span className="char otter">🦦</span>
+        </h1>
+        <p className="block self-end ml-auto text-xl font-mono">
+          building website, plz visitbuilding website, plz visitbuilding
+          website, plz visit
+          <Link href="https://blog.ajiang.co">
+            <a target="_blank">my blog</a>
+          </Link>
+        </p>
+      </div>
+      <motion.div
+        className="w-full h-full bg-gray-600 absolute top-0 left-0"
+        variants={menu}
+      />
       <Items />
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.div>
@@ -47,20 +62,33 @@ const Magic = () => {
 const vItems = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    visibility: "visible",
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
+    transitionEnd: { visibility: "hidden" },
+  },
+};
+const vPage = {
+  open: {
+    visibility: "visible",
+  },
+  closed: {
+    transitionEnd: { visibility: "hidden" },
   },
 };
 
 const Items = () => (
-  <div className="absolute top-0 left-0 w-full h-full flex items-center justify-center">
+  <motion.div
+    variants={vPage}
+    className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+  >
     <motion.ul variants={vItems}>
       {itemIds.map((i) => (
         <Item i={i} key={i} />
       ))}
     </motion.ul>
-  </div>
+  </motion.div>
 );
 const itemIds = [0, 1, 2, 3, 4];
 
@@ -71,6 +99,7 @@ const vItem = {
     transition: {
       y: { stiffness: 1000, velocity: -100 },
     },
+    visibility: "visible",
   },
   closed: {
     y: 50,
@@ -78,6 +107,7 @@ const vItem = {
     transition: {
       y: { stiffness: 1000 },
     },
+    transitionEnd: { visibility: "hidden" },
   },
 };
 
@@ -87,7 +117,7 @@ const Item = ({ i }) => {
   const style = { border: `2px solid ${colors[i]}` };
   return (
     <motion.li
-      className="flex items-center mb-6 cursor-pointer"
+      className="flex items-center w-60 h-10 mb-6 cursor-pointer"
       variants={vItem}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
@@ -155,13 +185,7 @@ export default function Home() {
       </Head>
 
       <div className="h-screen relative">
-        <div className="h-4/5 max-h-screen relative flex flex-col items-center justify-center lg:items-stretch">
-          <div className="z-10 grid justify-center ml-0 lg:self-start lg:ml-48">
-            <h1 className="text-6xl lg:text-8xl text-black mb-4">water 🦦</h1>
-            <p className="block self-end ml-auto text-xl font-mono">
-              front-end developer
-            </p>
-          </div>
+        <div className="h-4/5 max-h-screen relative">
           <svg
             className="block w-full h-20 lg:h-40 max-h-screen fill-current text-green-900 absolute bottom-0 left-0"
             xmlns="http://www.w3.org/2000/svg"
