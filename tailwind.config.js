@@ -2,6 +2,9 @@ module.exports = {
   purge: ["./pages/**/*.js", "./components/**/*.js"],
   darkMode: false, // or 'media' or 'class'
   theme: {
+    screens: {
+      xm: { min: "140px", max: "288px" },
+    },
     extend: {
       keyframes: {
         wave: {
