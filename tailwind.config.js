@@ -18,7 +18,7 @@ module.exports = {
       },
       animation: {
         wave: "wave 6s linear -2s infinite",
-        otter: "otter 4s ease-in-out 1s infinite",
+        otter: "otter 4s ease-in-out infinite",
       },
     },
   },
