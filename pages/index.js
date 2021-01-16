@@ -10,11 +10,11 @@ export default function Home() {
         <title>阿江</title>
       </Head>
 
-      <div className="h-screen relative dark:bg-gray-500 transition duration-500 ease-in">
+      <div className="h-screen relative dark:bg-gray-500">
         <div className="h-3/4 max-h-screen relative flex flex-col items-center justify-center lg:items-stretch">
           <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
             <h1
-              className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100 transition duration-300 ease-in-out"
+              className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100 transition"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               water <span className="animate-otter inline-block">🦦</span>
