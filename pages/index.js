@@ -38,8 +38,8 @@ const Magic = () => {
       ref={containerRef}
     >
       <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
-        <h1 className="font-serif text-6xl lg:text-8xl text-black mb-4">
-          water <span className="char otter">🦦</span>
+        <h1 className="text-6xl lg:text-8xl text-black mb-4">
+          water <span className="animate-otter inline-block">🦦</span>
         </h1>
         <p className="block self-end ml-auto text-xl font-mono">
           <Link href="https://blog.ajiang.co">
@@ -206,7 +206,12 @@ export default function Home() {
               />
             </defs>
             <g className="parallax">
-              <use xlinkHref="#gentle-wave" x={50} y={6} />
+              <use
+                xlinkHref="#gentle-wave"
+                className="animate-wave"
+                x={50}
+                y={6}
+              />
             </g>
           </svg>
         </div>
