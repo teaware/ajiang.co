@@ -7,7 +7,7 @@ export default function Playing() {
   const { data } = useSWR("/api/playing", fetcher);
 
   return (
-    <div className="flex items-start border border-gray-300 dark:border-gray-800 rounded-lg w-72 xm:w-20 p-2 my-8">
+    <div className="flex items-start border border-gray-300 dark:border-gray-100 rounded-lg w-72 xm:w-20 p-2 my-8">
       <Image
         alt="Spotify"
         className="rounded-md w-60 h-60"
