@@ -10,7 +10,7 @@ export default function Home() {
         <title>阿江</title>
       </Head>
 
-      <div className="h-screen relative dark:bg-gray-500 transition duration-500 ease-in-out">
+      <div className="h-screen relative dark:bg-gray-500 transition duration-500 ease-in">
         <div className="h-3/4 max-h-screen relative flex flex-col items-center justify-center lg:items-stretch">
           <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
             <h1
@@ -23,14 +23,14 @@ export default function Home() {
               <a
                 href="https://blog.ajiang.co"
                 target="_blank"
-                className="dark:text-gray-100 pb-1 border-double border-b-4 border-transparent hover:border-current transition-all duration-700 ease-in-out"
+                className="dark:text-gray-100 pb-1 border-double border-b-4 border-transparent hover:border-current transition-all duration-500 ease-in-out"
               >
                 go to my blog
               </a>
             </p>
           </div>
           <svg
-            className="absolute bottom-0 left-0 block w-full h-20 lg:h-40 max-h-screen fill-current text-green-700 dark:text-green-900 transition duration-500 ease-in-out"
+            className="absolute bottom-0 left-0 block w-full h-20 lg:h-40 max-h-screen fill-current text-green-600 dark:text-green-900"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 24 150 28"
@@ -52,7 +52,7 @@ export default function Home() {
             </g>
           </svg>
         </div>
-        <div className="h-1/4 bg-green-700 dark:bg-green-900 transition duration-500 ease-in-out -mt-px pb-px box-content" />
+        <div className="h-1/4 bg-green-600 dark:bg-green-900 -mt-px pb-px box-content" />
         <div className="absolute left-0 bottom-0 w-full flex justify-center">
           <Playing />
         </div>

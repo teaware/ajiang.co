@@ -12,8 +12,8 @@ module.exports = {
           "100%": { transform: "translate3d(85px, 0, 0)" },
         },
         otter: {
-          "0%, 100%": { transform: "translate3d(0, 0, 0)" },
-          "50%": { transform: "translate3d(0, 10px, 0)" },
+          "0%, 100%": { transform: "translate3d(0, -4px, 0)" },
+          "50%": { transform: "translate3d(0, 4px, 0)" },
         },
       },
       animation: {
