@@ -6,6 +6,15 @@ module.exports = {
       xm: { min: "140px", max: "288px" },
     },
     extend: {
+      screens: {
+        standalone: { raw: "(display-mode: standalone)" },
+      },
+      spacing: {
+        "safe-top": "env(safe-area-inset-top)",
+        "safe-bottom": "env(safe-area-inset-bottom)",
+        "safe-left": "env(safe-area-inset-left)",
+        "safe-right": "env(safe-area-inset-right)",
+      },
       keyframes: {
         wave: {
           "0%": { transform: "translate3d(-90px, 0, 0)" },
