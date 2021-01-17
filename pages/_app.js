@@ -35,6 +35,7 @@ const Layout = ({ children }) => {
           name="viewport"
           content="initial-scale=1, viewport-fit=cover, user-scalable=no"
         />
+        <meta name="theme-color" content="#ffffff" />
         <link
           rel="apple-touch-startup-image"
           href="icons/apple-splash-2048-2732.jpg"
