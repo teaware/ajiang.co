@@ -8,7 +8,7 @@ export default function Home() {
         <title>阿江</title>
       </Head>
 
-      <div className="h-screen relative dark:bg-gray-600">
+      <div className="h-screen dark:bg-gray-600">
         <div className="h-3/4 max-h-screen relative flex flex-col items-center justify-center lg:items-stretch">
           <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
             <h1 className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100 transition">
@@ -48,9 +48,10 @@ export default function Home() {
             </g>
           </svg>
         </div>
-        <div className="h-1/4 bg-green-600 dark:bg-green-900 -mt-px pb-px box-content" />
-        <div className="absolute left-0 bottom-0 w-full flex justify-center">
-          <Playing />
+        <div className="h-1/4 bg-green-600 dark:bg-green-900 -mt-px pb-px box-content relative">
+          <div className="absolute left-0 -top-12 w-full flex justify-center">
+            <Playing />
+          </div>
         </div>
       </div>
     </>

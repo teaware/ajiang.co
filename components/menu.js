@@ -3,7 +3,7 @@ import { motion, useCycle } from "framer-motion";
 
 const vMenu = {
   open: (height = 1000) => ({
-    clipPath: `circle(${height * 3 + 200}px at calc(100% - 3rem) 3rem)`,
+    clipPath: `circle(${height * 3 + 200}px at 3rem 3rem)`,
     transition: {
       type: "spring",
       stiffness: 40,
@@ -11,7 +11,8 @@ const vMenu = {
     },
   }),
   closed: {
-    clipPath: "circle(1.8rem at calc(100% - 3rem) 3rem)",
+    // if(condition) {},
+    clipPath: "circle(0.1px at 3rem calc(3rem))",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -28,14 +29,13 @@ export default function Menu() {
 
   return (
     <motion.div
-      className="absolute w-full h-full top-0 left-0"
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
     >
       <motion.div
-        className="w-full h-full bg-gray-600 absolute top-0 left-0"
+        className="w-full h-full max-h-screen bg-indigo-300 pt-safe-top absolute top-0 left-0 box-content"
         variants={vMenu}
       />
       <Items />
@@ -124,9 +124,9 @@ const Path = (props) => (
 const MenuToggle = ({ toggle }) => (
   <button
     onClick={toggle}
-    className="absolute top-6 right-6 w-12 h-12 flex items-center justify-center select-none outline-none focus:outline-none border-none bg-transparent"
+    className="absolute top-6 left-6 w-12 h-12 mt-safe-top flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
   >
-    <svg className="w-6 h-6 text-white fill-current" viewBox="0 -2 23 23">
+    <svg className="w-8 h-8" fill="currentColor" viewBox="0 -2 23 23">
       <Path
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },

@@ -7,7 +7,7 @@ export default function Playing() {
   const { data } = useSWR("/api/playing", fetcher);
 
   return (
-    <div className="flex items-start border border-gray-300 dark:border-gray-100 rounded-lg w-72 xm:w-20 p-2 my-8">
+    <div className="flex items-start border border-gray-300 dark:border-gray-100 rounded-lg w-72 xm:w-20 p-2 my-4">
       <Image
         alt="Spotify"
         className="rounded-md w-60 h-60"
@@ -18,7 +18,7 @@ export default function Playing() {
       <div className="flex flex-col justify-center items-start xm:hidden ml-3">
         {data?.songUrl ? (
           <a
-            className="text-gray-200 dark:text-gray-100 font-medium max-w-48 truncate w-48"
+            className="text-gray-800 dark:text-gray-100 font-medium max-w-48 truncate w-48"
             href={data.songUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -26,11 +26,11 @@ export default function Playing() {
             {data.title}
           </a>
         ) : (
-          <p className="text-gray-200 dark:text-gray-100 font-medium max-w-48 truncate w-48">
+          <p className="text-gray-800 dark:text-gray-100 font-medium max-w-48 truncate w-48">
             Not Playing
           </p>
         )}
-        <p className="text-gray-300 dark:text-gray-200 max-w-48 truncate w-48">
+        <p className="text-gray-800 dark:text-gray-200 max-w-48 truncate w-48">
           {data?.artist ?? "Spotify"}
         </p>
       </div>

@@ -6,9 +6,6 @@ module.exports = {
       xm: { min: "140px", max: "288px" },
     },
     extend: {
-      screens: {
-        standalone: { raw: "(display-mode: standalone)" },
-      },
       spacing: {
         "safe-top": "env(safe-area-inset-top)",
         "safe-bottom": "env(safe-area-inset-bottom)",
