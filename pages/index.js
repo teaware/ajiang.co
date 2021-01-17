@@ -21,9 +21,10 @@ export default function Home() {
             </h1>
             <p className="block self-end ml-auto text-xl font-mono">
               <a
+                className="dark:text-gray-100 pb-1 border-double border-b-4 border-transparent hover:border-current transition-all duration-500 ease-in-out"
                 href="https://blog.ajiang.co"
                 target="_blank"
-                className="dark:text-gray-100 pb-1 border-double border-b-4 border-transparent hover:border-current transition-all duration-500 ease-in-out"
+                rel="noopener noreferrer"
               >
                 go to my blog
               </a>
