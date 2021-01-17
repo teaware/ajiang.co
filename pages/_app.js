@@ -31,10 +31,7 @@ const Layout = ({ children }) => {
           name="apple-mobile-web-app-status-bar-style"
           content="black-translucent"
         />
-        <meta
-          name="viewport"
-          content="initial-scale=1, viewport-fit=cover, user-scalable=no"
-        />
+        <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
         <meta name="theme-color" content="#ffffff" />
         <link
           rel="apple-touch-startup-image"
