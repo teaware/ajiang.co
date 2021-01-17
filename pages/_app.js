@@ -1,6 +1,7 @@
 import "../styles/tailwind.css";
 import Head from "next/head";
 import { ThemeProvider } from "next-themes";
+import DarkMode from "../components/dark-mode";
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -165,8 +166,9 @@ const Layout = ({ children }) => {
         />
       </Head>
 
-      <div className="flex flex-col min-h-screen font-sans text-base antialiased text-gray-800">
+      <div className="flex flex-col min-h-screen font-sans text-base antialiased text-gray-800 dark:text-white">
         <main className="flex flex-col flex-1">{children}</main>
+        <DarkMode />
       </div>
     </>
   );

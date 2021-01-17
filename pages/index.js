@@ -1,22 +1,17 @@
 import Head from "next/head";
 import Playing from "../components/playing";
-import { useTheme } from "next-themes";
 
 export default function Home() {
-  const { theme, setTheme } = useTheme();
   return (
     <>
       <Head>
         <title>阿江</title>
       </Head>
 
-      <div className="h-screen relative dark:bg-gray-500">
+      <div className="h-screen relative dark:bg-gray-600">
         <div className="h-3/4 max-h-screen relative flex flex-col items-center justify-center lg:items-stretch">
           <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
-            <h1
-              className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100 transition"
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            >
+            <h1 className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100 transition">
               water <span className="animate-otter inline-block">🦦</span>
             </h1>
             <p className="block self-end ml-auto text-xl font-mono">
