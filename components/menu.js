@@ -107,7 +107,7 @@ const Item = ({ i }) => {
 const Path = (props) => (
   <motion.path
     className="stroke-current stroke-2"
-    strokeLinecap="square"
+    strokeLinecap="round"
     {...props}
   />
 );
