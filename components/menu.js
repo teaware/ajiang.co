@@ -6,19 +6,20 @@ const vMenu = {
     clipPath: `circle(${height * 3 + 200}px at 3rem 3rem)`,
     transition: {
       type: "spring",
-      stiffness: 40,
+      stiffness: 20,
       restDelta: 2,
     },
+    zIndex: 0,
   }),
   closed: {
-    // if(condition) {},
-    clipPath: "circle(0.1px at 3rem calc(3rem))",
+    clipPath: "circle(10px at 3rem 3rem)",
     transition: {
       delay: 0.5,
       type: "spring",
-      stiffness: 320,
+      stiffness: 400,
       damping: 40,
     },
+    transitionEnd: { zIndex: -1 },
   },
 };
 
@@ -29,16 +30,18 @@ export default function Menu() {
 
   return (
     <motion.div
+      className="menu"
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
       ref={containerRef}
     >
       <motion.div
-        className="w-full h-full max-h-screen bg-indigo-300 pt-safe-top absolute top-0 left-0 box-content"
+        className="w-full bg-indigo-300 pt-safe-top absolute top-0 left-0 bottom-0"
         variants={vMenu}
-      />
-      <Items />
+      >
+        <Items />
+      </motion.div>
       <MenuToggle toggle={() => toggleOpen()} />
     </motion.div>
   );
@@ -47,33 +50,21 @@ export default function Menu() {
 const vItems = {
   open: {
     transition: { staggerChildren: 0.07, delayChildren: 0.2 },
-    visibility: "visible",
   },
   closed: {
     transition: { staggerChildren: 0.05, staggerDirection: -1 },
-    transitionEnd: { visibility: "hidden" },
-  },
-};
-const vPage = {
-  open: {
-    visibility: "visible",
-  },
-  closed: {
-    transitionEnd: { visibility: "hidden" },
   },
 };
 
 const Items = () => (
-  <motion.div
-    variants={vPage}
-    className="absolute top-0 left-0 w-full h-full flex items-center justify-center"
+  <motion.ul
+    className="absolute top-0 left-0 bottom-0 w-full flex flex-col items-center justify-center"
+    variants={vItems}
   >
-    <motion.ul variants={vItems}>
-      {itemIds.map((i) => (
-        <Item i={i} key={i} />
-      ))}
-    </motion.ul>
-  </motion.div>
+    {itemIds.map((i) => (
+      <Item i={i} key={i} />
+    ))}
+  </motion.ul>
 );
 const itemIds = [0, 1, 2, 3, 4];
 
@@ -84,7 +75,6 @@ const vItem = {
     transition: {
       y: { stiffness: 1000, velocity: -100 },
     },
-    visibility: "visible",
   },
   closed: {
     y: 50,
@@ -92,7 +82,6 @@ const vItem = {
     transition: {
       y: { stiffness: 1000 },
     },
-    transitionEnd: { visibility: "hidden" },
   },
 };
 
@@ -124,7 +113,7 @@ const Path = (props) => (
 const MenuToggle = ({ toggle }) => (
   <button
     onClick={toggle}
-    className="absolute top-6 left-6 w-12 h-12 mt-safe-top flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
+    className="absolute top-6 left-6 w-12 h-12 mt-safe-top rounded-full flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
   >
     <svg className="w-8 h-8" fill="currentColor" viewBox="0 -2 23 23">
       <Path
