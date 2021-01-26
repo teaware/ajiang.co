@@ -8,7 +8,7 @@ export default function Home() {
         <title>阿江</title>
       </Head>
 
-      <div className="h-screen dark:bg-gray-600">
+      <div className="h-screen min-h-screen dark:bg-gray-600">
         <div className="h-3/4 max-h-screen relative flex flex-col items-center justify-center lg:items-stretch">
           <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
             <h1 className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100 transition">
