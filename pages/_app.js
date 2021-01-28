@@ -166,8 +166,8 @@ const Layout = ({ children }) => {
         />
       </Head>
 
-      <div className="flex flex-col min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-600">
-        <main className="flex flex-col flex-1">{children}</main>
+      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-600">
+        <main>{children}</main>
         <DarkMode />
       </div>
     </>

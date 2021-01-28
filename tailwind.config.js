@@ -2,9 +2,6 @@ module.exports = {
   purge: ["./pages/**/*.js", "./components/**/*.js"],
   darkMode: "class", // or 'media' or 'class'
   theme: {
-    screens: {
-      xm: { min: "140px", max: "288px" },
-    },
     extend: {
       spacing: {
         "safe-top": "env(safe-area-inset-top)",
