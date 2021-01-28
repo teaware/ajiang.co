@@ -4,14 +4,14 @@ import Image from "next/image";
 
 function Track(track) {
   return (
-    <div className="flex flex-row items-center max-w-3xl w-full mt-8 mx-auto">
-      <p className="text-sm font-bold text-gray-400 dark:text-gray-200">
+    <div className="flex flex-row items-center mb-8">
+      <p className="w-4 text-center text-sm font-bold text-gray-400 dark:text-gray-200">
         {track.ranking}
       </p>
-      <div className="flex flex-col pl-3">
+      <div className="w-16 flex flex-col pl-3">
         <Image
           alt="Spotify"
-          className="w-60 h-60"
+          className="w-16 h-16"
           height={60}
           width={60}
           src={track.albumImageUrl}
@@ -19,14 +19,14 @@ function Track(track) {
       </div>
       <div className="flex flex-col pl-3">
         <a
-          className="font-medium text-gray-900 dark:text-white truncate w-full sm:w-96"
+          className="font-medium text-gray-900 dark:text-white truncate w-60 md:w-full overflow-hidden"
           href={track.songUrl}
           target="_blank"
           rel="noopener noreferrer"
         >
           {track.title}
         </a>
-        <p className="text-gray-500 dark:text-gray-300 mb-4 truncate w-full sm:w-96">
+        <p className="text-gray-500 dark:text-gray-300 mb-4 truncate w-60 md:w-full overflow-hidden">
           {track.artist}
         </p>
       </div>
