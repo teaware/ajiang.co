@@ -8,7 +8,7 @@ export default function Home() {
         <title>阿江 | 十大金曲</title>
       </Head>
 
-      <div className="p-4 dark:bg-gray-600">
+      <div className="p-4">
         <h1 className="font-mono text-2xl max-w-3xl w-full my-4 mx-auto">
           my top 10 list
         </h1>
