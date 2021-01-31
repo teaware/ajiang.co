@@ -5,7 +5,7 @@ const vMenu = {
   open: (height = 1000) => ({
     clipPath: `circle(${
       height * 3 + 200
-    }px at 3rem calc(3rem + env(safe-area-inset-top)))`,
+    }px at 2rem calc(2rem + env(safe-area-inset-top)))`,
     transition: {
       type: "spring",
       stiffness: 20,
@@ -14,7 +14,7 @@ const vMenu = {
     zIndex: 0,
   }),
   closed: {
-    clipPath: "circle(1px at 3rem calc(3rem + env(safe-area-inset-top)))",
+    clipPath: "circle(1px at 2rem calc(2rem + env(safe-area-inset-top)))",
     transition: {
       delay: 0.5,
       type: "spring",
@@ -39,7 +39,7 @@ export default function Menu() {
       ref={containerRef}
     >
       <motion.div
-        className="w-full h-full max-h-screen bg-indigo-300 absolute top-0 left-0 bottom-0 pt-safe-top box-content"
+        className="w-full h-full max-h-screen bg-indigo-300 dark:bg-indigo-800 absolute top-0 left-0 bottom-0 pt-safe-top box-content"
         variants={vMenu}
       >
         <Items />
@@ -115,9 +115,9 @@ const Path = (props) => (
 const MenuToggle = ({ toggle }) => (
   <button
     onClick={toggle}
-    className="absolute top-6 left-6 w-12 h-12 mt-safe-top rounded-full transition-all duration-500 ease-in flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
+    className="absolute top-4 left-4 w-8 h-8 mt-safe-top rounded-full transition-all duration-500 ease-in flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
   >
-    <svg className="w-8 h-8" fill="currentColor" viewBox="0 -2 23 23">
+    <svg className="w-7 h-7" fill="currentColor" viewBox="0 -2 23 23">
       <Path
         variants={{
           closed: { d: "M 2 2.5 L 20 2.5" },

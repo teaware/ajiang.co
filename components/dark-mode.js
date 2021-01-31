@@ -5,10 +5,10 @@ export default function DarkMode() {
   return (
     <button
       onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="absolute top-6 right-6 w-12 h-12 mt-safe-top rounded-full transition-all duration-500 ease-in flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
+      className="absolute top-4 right-4 w-8 h-8 mt-safe-top rounded-full transition-all duration-500 ease-in flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
     >
       <svg
-        className="w-8 h-8"
+        className="w-7 h-7"
         fill="currentColor"
         viewBox="0 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
