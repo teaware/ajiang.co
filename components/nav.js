@@ -1,7 +1,6 @@
-import "../styles/tailwind.css";
 import Link from "next/link";
 
-export default function Nav({ children }) {
+export default function Nav() {
   return (
     <>
       <div className="flex flex-col min-h-screen font-sans text-base antialiased text-gray-800">
@@ -28,7 +27,6 @@ export default function Nav({ children }) {
             </div>
           </div>
         </header>
-        <main className="flex flex-col flex-1">{children}</main>
       </div>
     </>
   );

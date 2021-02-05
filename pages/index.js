@@ -1,17 +1,16 @@
-import Head from "next/head";
-import Playing from "../components/playing";
+import Container from "../components/Container";
+import Playing from "../components/Playing";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>阿江</title>
-      </Head>
-
+    <Container
+      title="home – 阿江"
+      description="Thoughts on the software industry, programming, tech, music, and my personal life."
+    >
       <div className="h-screen overflow-x-hidden">
         <div className="h-3/4 relative flex flex-col items-center justify-center lg:items-stretch">
           <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
-            <h1 className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100 transition">
+            <h1 className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100">
               water <span className="animate-otter inline-block">🦦</span>
             </h1>
             <p className="block self-end ml-auto text-xl font-mono">
@@ -49,11 +48,11 @@ export default function Home() {
           </svg>
         </div>
         <div className="h-1/4 bg-green-600 dark:bg-green-900 -mt-px pb-px box-content relative">
-          <div className="absolute left-0 -top-12 w-full flex justify-center">
+          <div className="absolute left-1/2 -top-12 transform -translate-x-1/2">
             <Playing />
           </div>
         </div>
       </div>
-    </>
+    </Container>
   );
 }

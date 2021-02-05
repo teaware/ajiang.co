@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
 import NextLink from "next/link";
 
-import Footer from "./Footer";
-
 export default function Container(props) {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -18,7 +16,7 @@ export default function Container(props) {
   const meta = {
     title: "water 🦦 – Developer, writer, creator.",
     description: `Front-end developer, JavaScript enthusiast, and some kind of creator.`,
-    image: "https://leerob.io/static/images/banner.png",
+    image: "https://ajiang.co/img/banner.png",
     type: "website",
     ...customMeta,
   };
@@ -46,16 +44,16 @@ export default function Container(props) {
         <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
       </Head>
 
-      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-600">
-        <nav className="sticky-nav flex justify-between items-center max-w-4xl w-full p-8 my-0 md:my-8 mx-auto bg-white dark:bg-gray-600 bg-opacity-60">
+      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-gray-50 dark:text-white dark:bg-gray-600">
+        <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center max-w-4xl w-full p-4 my-0 mx-auto z-10">
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
 
           <div>
-            <NextLink href="/dashboard">
+            <NextLink href="/">
               <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
-                Dashboard
+                Home
               </a>
             </NextLink>
             <NextLink href="/blog">
@@ -68,16 +66,11 @@ export default function Container(props) {
                 About
               </a>
             </NextLink>
-            <NextLink href="/">
-              <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
-                Home
-              </a>
-            </NextLink>
           </div>
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="w-10 h-10 mt-safe-top rounded-full p-1 select-none outline-none focus:outline-none border-none"
+            className="w-8 h-8 mt-safe-top rounded-full p-1 select-none outline-none focus:outline-none border-none"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {mounted && (
@@ -85,7 +78,7 @@ export default function Container(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 fill="currentColor"
-                className="h-8 w-8 text-gray-600 dark:text-white"
+                className="h-7 w-7 text-gray-600 dark:text-white"
               >
                 {theme === "dark" ? (
                   <path
@@ -100,10 +93,7 @@ export default function Container(props) {
             )}
           </button>
         </nav>
-        <main id="skip" className="flex flex-col justify-center px-8">
-          {children}
-          <Footer />
-        </main>
+        <main id="skip">{children}</main>
       </div>
     </>
   );
