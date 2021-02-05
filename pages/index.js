@@ -1,5 +1,5 @@
 import Container from "../components/Container";
-import Playing from "../components/playing";
+import Playing from "../components/Playing";
 
 export default function Home() {
   return (
