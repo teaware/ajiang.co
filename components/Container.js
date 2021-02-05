@@ -44,8 +44,8 @@ export default function Container(props) {
         <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
       </Head>
 
-      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-gray-50 dark:text-white dark:bg-gray-600">
-        <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center max-w-4xl w-full p-4 my-0 mx-auto z-10">
+      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-600">
+        <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center text-base max-w-4xl w-full px-4 py-2 lg:py-4 mt-safe-top mx-auto z-10">
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
@@ -69,7 +69,7 @@ export default function Container(props) {
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="w-8 h-8 mt-safe-top rounded-full p-1 select-none outline-none focus:outline-none border-none"
+            className="w-8 h-8 rounded-full p-1 select-none outline-none focus:outline-none border-none"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {mounted && (

@@ -20,7 +20,7 @@ export default function Blog({ posts }) {
       title="blog – 阿江记事本"
       description="Thoughts on the software industry, programming, tech, music, and my personal life."
     >
-      <div className="flex flex-col justify-center items-start max-w-2xl px-8 mx-auto my-16">
+      <div className="flex flex-col justify-center items-start max-w-2xl px-8 pt-safe-top mx-auto my-12">
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4">
           Blog
         </h1>

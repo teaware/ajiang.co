@@ -1,17 +1,15 @@
-import Head from "next/head";
+import Container from "../components/Container";
 import TopTracks from "../components/TopTracks";
 
 export default function Home() {
   return (
-    <>
-      <Head>
-        <title>阿江 | 十大金曲</title>
-      </Head>
-
-      <div className="max-w-3xl p-4 mx-auto my-16">
-        <h1 className="font-mono text-3xl w-full my-8">my top 10 list</h1>
+    <Container title="about – 阿江" description="我爱大自然">
+      <div className="flex flex-col justify-center items-start max-w-2xl px-8 pt-safe-top mx-auto my-12">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4">
+          My Top 10 List
+        </h1>
         <TopTracks />
       </div>
-    </>
+    </Container>
   );
 }
