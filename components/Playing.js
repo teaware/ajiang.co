@@ -11,8 +11,8 @@ export default function Playing() {
       <Image
         alt="Spotify"
         className="rounded-md w-16 h-16"
-        height={600}
-        width={600}
+        height={60}
+        width={60}
         src={data?.albumImageUrl || "/img/me.jpg"}
       />
       <div className="flex flex-col justify-center items-start ml-3">
