@@ -1,9 +1,11 @@
 {
   "name": "ajiang.co",
   "short_name": "阿江",
-  "theme_color": "#fff",
-  "background_color": "#000",
+  "theme_color": "#ffffff",
+  "background_color": "#ffffff",
   "display": "standalone",
+  "dir": "ltr",
+  "lang": "en-US",
   "scope": "/",
   "start_url": "/",
   "icons": [

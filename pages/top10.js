@@ -1,5 +1,5 @@
 import Head from "next/head";
-import TopTracks from "../components/top-tracks";
+import TopTracks from "../components/TopTracks";
 
 export default function Home() {
   return (

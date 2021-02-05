@@ -11,5 +11,10 @@ export default async (_, res) => {
     albumImageUrl: track.album.images[0].url,
   }));
 
+  res.setHeader(
+    "Cache-Control",
+    "public, s-maxage=86400, stale-while-revalidate=43200"
+  );
+
   return res.status(200).json({ tracks });
 };
