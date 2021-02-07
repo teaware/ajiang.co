@@ -16,5 +16,5 @@ export default function ViewCounter({ slug }) {
     registerView();
   }, [slug]);
 
-  return `${views ? views : "–––"} views`;
+  return `${views ? `${views} 阅读` : ""}`;
 }
