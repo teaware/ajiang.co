@@ -5,8 +5,8 @@ import Container from "../components/Container";
 export default function NotFound() {
   return (
     <Container title="404 – water 🦦">
-      <div className="flex flex-col justify-center items-start max-w-2xl px-8 pt-safe-top mx-auto my-12">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 text-black dark:text-white">
+      <div className="flex flex-col justify-center items-start max-w-2xl px-4 pt-safe-top mx-auto my-12">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 md:mt-8">
           404 – Not found
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-8">
@@ -16,7 +16,7 @@ export default function NotFound() {
           that URL?
         </p>
         <Link href="/">
-          <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-100 dark:bg-gray-900 text-center rounded-md text-black dark:text-white">
+          <a className="p-1 sm:p-4 w-64 font-bold mx-auto bg-gray-100 dark:bg-gray-900 text-center rounded-md">
             Go Home
           </a>
         </Link>

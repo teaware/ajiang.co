@@ -15,8 +15,8 @@ export default function BlogLayout({ children, frontMatter }) {
       date={new Date(frontMatter.publishedAt).toISOString()}
       type="article"
     >
-      <article className="flex flex-col justify-center items-start max-w-2xl px-8 pt-safe-top mx-auto my-12 w-full">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4">
+      <article className="flex flex-col justify-center items-start max-w-2xl px-4 pt-safe-top mx-auto my-12 w-full">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4 md:mt-8">
           {frontMatter.title}
         </h1>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
