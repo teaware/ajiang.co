@@ -186,7 +186,7 @@ export default function Container(props) {
       </Head>
 
       <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-600">
-        <nav className="fixed top-0 left-1/2 transform -translate-x-1/2 bg-white dark:bg-gray-600 flex justify-between items-center text-base max-w-4xl w-full p-4 mt-safe-top z-10">
+        <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center text-base max-w-4xl w-full p-4 mt-safe-top z-10">
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
