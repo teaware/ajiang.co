@@ -39,7 +39,7 @@ yarn create next-app
 
 在刚刚创建完成的项目目录中，我们找到 `pages/index.js` 然后编辑它
 
-```jsx{14-16}
+```jsx{14,15,16}
 import Head from "next/head"
 import useSWR from "swr"
 
@@ -166,7 +166,7 @@ export default HomePage;
 
 新建 components 文件夹并创建 `pokemon.js`
 
-```jsx{4-5, 8-12}
+```jsx{4,5,8,9,10,11,12}
 import useSWR from "swr";
 
 function Pokemon({ name }) {
@@ -222,7 +222,7 @@ export default Pokemon;
 
 接下来我们回到 `pages/index.js` 引入 `Pokemon` 部件，代码调整如下
 
-```jsx{3, 17}
+```jsx{3,17}
 import Head from "next/head";
 import { useSWRInfinite, SWRConfig } from "swr";
 import Pokemon from "../components/pokemon";
