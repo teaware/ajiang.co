@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 const BlogPost = ({ title, summary, slug }) => {
   return (

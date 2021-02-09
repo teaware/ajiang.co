@@ -1,6 +1,6 @@
-import Head from "next/head";
-import Link from "next/link";
-import Image from "next/image";
+import Head from 'next/head';
+import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -14,15 +14,15 @@ export default function Home() {
           <SectionTitle link="/projects">Projects</SectionTitle>
           <SectionBody>
             <p>
-              I'm currently working on{" "}
+              I'm currently working on{' '}
               <a href="https://miragejs.com/">Mirage JS</a>, an API mocking
               library that lets frontend developers build complete features
-              without touching their backend APIs.{" "}
+              without touching their backend APIs.{' '}
             </p>
             <p className="mt-6">
               I also run <a href="https://embermap.com/">embermap.com</a> where
               I make videos about design, development and testing using
-              Ember.js, along with my friend{" "}
+              Ember.js, along with my friend{' '}
               <a href="https://twitter.com/ryantotweets">Ryan Toronto</a>.
             </p>
           </SectionBody>
@@ -68,10 +68,10 @@ export default function Home() {
 
 function Container({ size, children }) {
   let styles = {
-    small: "max-w-sm mx-auto px-6 sm:max-w-lg md:max-w-xl lg:max-w-2xl", // Home
-    some: "max-w-xl px-6 mx-auto lg:max-w-3xl lg:px-0", // Podcast, Blog index
-    measure: "max-w-measure mx-auto", // Blog post
-    large: "max-w-2xl px-6 mx-auto md:max-w-xl", // Projects
+    small: 'max-w-sm mx-auto px-6 sm:max-w-lg md:max-w-xl lg:max-w-2xl', // Home
+    some: 'max-w-xl px-6 mx-auto lg:max-w-3xl lg:px-0', // Podcast, Blog index
+    measure: 'max-w-measure mx-auto', // Blog post
+    large: 'max-w-2xl px-6 mx-auto md:max-w-xl' // Projects
   };
 
   return <div className={styles[size]}>{children}</div>;

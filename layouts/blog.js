@@ -1,6 +1,6 @@
-import { parseISO, format } from "date-fns";
+import { parseISO, format } from 'date-fns';
 
-import Container from "@/components/Container";
+import Container from '@/components/Container';
 
 const editUrl = (slug) =>
   `https://github.com/teaware/ajiang.co/edit/main/data/blog/${slug}.mdx`;
@@ -20,7 +20,7 @@ export default function BlogLayout({ children, frontMatter }) {
         </h1>
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center w-full mt-2 mb-8">
           <p className="text-sm text-gray-700 dark:text-gray-300">
-            {format(parseISO(frontMatter.publishedAt), "MMMM dd, yyyy")}
+            {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
           </p>
         </div>
         <div className="prose dark:prose-dark max-w-none w-full">
@@ -32,7 +32,7 @@ export default function BlogLayout({ children, frontMatter }) {
             target="_blank"
             rel="noopener noreferrer"
           >
-            {"Edit on GitHub"}
+            {'Edit on GitHub'}
           </a>
         </div>
       </article>

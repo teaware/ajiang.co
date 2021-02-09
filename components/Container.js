@@ -1,10 +1,10 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useState, useEffect, useRef } from "react";
-import { useTheme } from "next-themes";
-import NextLink from "next/link";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useState, useEffect, useRef } from 'react';
+import { useTheme } from 'next-themes';
+import NextLink from 'next/link';
 
-import { motion, useCycle } from "framer-motion";
+import { motion, useCycle } from 'framer-motion';
 
 const vMenu = {
   open: (height = 1000) => ({
@@ -12,31 +12,31 @@ const vMenu = {
       height * 3 + 200
     }px at 2rem calc(2rem + env(safe-area-inset-top)))`,
     transition: {
-      type: "spring",
+      type: 'spring',
       stiffness: 20,
-      restDelta: 2,
+      restDelta: 2
     },
-    zIndex: 0,
+    zIndex: 0
   }),
   closed: {
-    clipPath: "circle(1px at 2rem calc(2rem + env(safe-area-inset-top)))",
+    clipPath: 'circle(1px at 2rem calc(2rem + env(safe-area-inset-top)))',
     transition: {
       delay: 0.5,
-      type: "spring",
+      type: 'spring',
       stiffness: 400,
-      damping: 40,
+      damping: 40
     },
-    transitionEnd: { zIndex: -1 },
-  },
+    transitionEnd: { zIndex: -1 }
+  }
 };
 
 const vItems = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+  }
 };
 
 const Items = () => (
@@ -50,9 +50,9 @@ const Items = () => (
   </motion.ul>
 );
 const links = [
-  { to: "/", name: "Home" },
-  { to: "/blog", name: "Blog" },
-  { to: "/about", name: "About" },
+  { to: '/', name: 'Home' },
+  { to: '/blog', name: 'Blog' },
+  { to: '/about', name: 'About' }
 ];
 
 const vItem = {
@@ -60,16 +60,16 @@ const vItem = {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 },
-    },
+      y: { stiffness: 1000, velocity: -100 }
+    }
   },
   closed: {
     y: 50,
     opacity: 0,
     transition: {
-      y: { stiffness: 1000 },
-    },
-  },
+      y: { stiffness: 1000 }
+    }
+  }
 };
 
 const Item = (link) => {
@@ -97,6 +97,8 @@ const Path = (props) => (
 
 const MenuToggle = ({ toggle }) => (
   <button
+    aria-label="Toggle Menu"
+    type="button"
     onClick={toggle}
     className="w-8 h-8 p-1 rounded-full flex items-center justify-center select-none outline-none focus:outline-none border-none"
   >
@@ -108,22 +110,22 @@ const MenuToggle = ({ toggle }) => (
     >
       <Path
         variants={{
-          closed: { d: "M 2 2.5 L 20 2.5" },
-          open: { d: "M 3 16.5 L 17 2.5" },
+          closed: { d: 'M 2 2.5 L 20 2.5' },
+          open: { d: 'M 3 16.5 L 17 2.5' }
         }}
       />
       <Path
         d="M 2 9.423 L 20 9.423"
         variants={{
           closed: { opacity: 1 },
-          open: { opacity: 0 },
+          open: { opacity: 0 }
         }}
         transition={{ duration: 0.1 }}
       />
       <Path
         variants={{
-          closed: { d: "M 2 16.346 L 20 16.346" },
-          open: { d: "M 3 2.5 L 17 16.346" },
+          closed: { d: 'M 2 16.346 L 20 16.346' },
+          open: { d: 'M 3 2.5 L 17 16.346' }
         }}
       />
     </svg>
@@ -151,11 +153,11 @@ export default function Container(props) {
   const { children, ...customMeta } = props;
   const router = useRouter();
   const meta = {
-    title: "water 🦦 – Developer, writer, creator.",
+    title: 'water 🦦 – Developer, writer, creator.',
     description: `Front-end developer, blog writer, and some kind of creator.`,
-    image: "https://ajiang.co/img/banner.png",
-    type: "website",
-    ...customMeta,
+    image: 'https://ajiang.co/img/banner.png',
+    type: 'website',
+    ...customMeta
   };
 
   const [isOpen, toggleOpen] = useCycle(false, true);
@@ -211,7 +213,7 @@ export default function Container(props) {
           <motion.div
             className="sm:hidden"
             initial={false}
-            animate={isOpen ? "open" : "closed"}
+            animate={isOpen ? 'open' : 'closed'}
           >
             <MenuToggle toggle={() => toggleOpen()} />
           </motion.div>
@@ -220,7 +222,7 @@ export default function Container(props) {
             aria-label="Toggle Dark Mode"
             type="button"
             className="w-8 h-8 rounded-full p-1 select-none outline-none focus:outline-none border-none"
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
             {mounted && (
               <svg
@@ -229,7 +231,7 @@ export default function Container(props) {
                 fill="currentColor"
                 className="h-7 w-7 text-gray-600 dark:text-white"
               >
-                {theme === "dark" ? (
+                {theme === 'dark' ? (
                   <path
                     fillRule="evenodd"
                     clipRule="evenodd"
@@ -246,7 +248,7 @@ export default function Container(props) {
         <motion.div
           className="menu"
           initial={false}
-          animate={isOpen ? "open" : "closed"}
+          animate={isOpen ? 'open' : 'closed'}
           custom={height}
           ref={containerRef}
         >

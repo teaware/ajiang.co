@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { useState } from 'react';
 
-import Container from "@/components/Container";
-import BlogPost from "@/components/BlogPost";
-import { getAllFilesFrontMatter } from "@/lib/mdx";
+import Container from '@/components/Container';
+import BlogPost from '@/components/BlogPost';
+import { getAllFilesFrontMatter } from '@/lib/mdx';
 
 export default function Blog({ posts }) {
-  const [searchValue, setSearchValue] = useState("");
+  const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = posts
     .sort(
       (a, b) =>
@@ -97,7 +97,7 @@ export default function Blog({ posts }) {
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
           All Posts
         </h3>
-        {!filteredBlogPosts.length && "No posts found."}
+        {!filteredBlogPosts.length && 'No posts found.'}
         {filteredBlogPosts.map((frontMatter) => (
           <BlogPost key={frontMatter.title} {...frontMatter} />
         ))}
@@ -107,7 +107,7 @@ export default function Blog({ posts }) {
 }
 
 export async function getStaticProps() {
-  const posts = await getAllFilesFrontMatter("blog");
+  const posts = await getAllFilesFrontMatter('blog');
 
   return { props: { posts } };
 }

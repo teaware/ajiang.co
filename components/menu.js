@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { motion, useCycle } from "framer-motion";
+import { useEffect, useRef } from 'react';
+import { motion, useCycle } from 'framer-motion';
 
 const vMenu = {
   open: (height = 1000) => ({
@@ -7,22 +7,22 @@ const vMenu = {
       height * 3 + 200
     }px at 2rem calc(2rem + env(safe-area-inset-top)))`,
     transition: {
-      type: "spring",
+      type: 'spring',
       stiffness: 20,
-      restDelta: 2,
+      restDelta: 2
     },
-    zIndex: 0,
+    zIndex: 0
   }),
   closed: {
-    clipPath: "circle(1px at 2rem calc(2rem + env(safe-area-inset-top)))",
+    clipPath: 'circle(1px at 2rem calc(2rem + env(safe-area-inset-top)))',
     transition: {
       delay: 0.5,
-      type: "spring",
+      type: 'spring',
       stiffness: 400,
-      damping: 40,
+      damping: 40
     },
-    transitionEnd: { zIndex: -1 },
-  },
+    transitionEnd: { zIndex: -1 }
+  }
 };
 
 export default function Menu() {
@@ -34,7 +34,7 @@ export default function Menu() {
     <motion.div
       className="menu"
       initial={false}
-      animate={isOpen ? "open" : "closed"}
+      animate={isOpen ? 'open' : 'closed'}
       custom={height}
       ref={containerRef}
     >
@@ -51,11 +51,11 @@ export default function Menu() {
 
 const vItems = {
   open: {
-    transition: { staggerChildren: 0.07, delayChildren: 0.2 },
+    transition: { staggerChildren: 0.07, delayChildren: 0.2 }
   },
   closed: {
-    transition: { staggerChildren: 0.05, staggerDirection: -1 },
-  },
+    transition: { staggerChildren: 0.05, staggerDirection: -1 }
+  }
 };
 
 const Items = () => (
@@ -75,19 +75,19 @@ const vItem = {
     y: 0,
     opacity: 1,
     transition: {
-      y: { stiffness: 1000, velocity: -100 },
-    },
+      y: { stiffness: 1000, velocity: -100 }
+    }
   },
   closed: {
     y: 50,
     opacity: 0,
     transition: {
-      y: { stiffness: 1000 },
-    },
-  },
+      y: { stiffness: 1000 }
+    }
+  }
 };
 
-const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"];
+const colors = ['#FF008C', '#D309E1', '#9C1AFF', '#7700FF', '#4400FF'];
 
 const Item = ({ i }) => {
   const style = { border: `2px solid ${colors[i]}` };
@@ -120,22 +120,22 @@ const MenuToggle = ({ toggle }) => (
     <svg className="w-7 h-7" fill="currentColor" viewBox="0 -2 23 23">
       <Path
         variants={{
-          closed: { d: "M 2 2.5 L 20 2.5" },
-          open: { d: "M 3 16.5 L 17 2.5" },
+          closed: { d: 'M 2 2.5 L 20 2.5' },
+          open: { d: 'M 3 16.5 L 17 2.5' }
         }}
       />
       <Path
         d="M 2 9.423 L 20 9.423"
         variants={{
           closed: { opacity: 1 },
-          open: { opacity: 0 },
+          open: { opacity: 0 }
         }}
         transition={{ duration: 0.1 }}
       />
       <Path
         variants={{
-          closed: { d: "M 2 16.346 L 20 16.346" },
-          open: { d: "M 3 2.5 L 17 16.346" },
+          closed: { d: 'M 2 16.346 L 20 16.346' },
+          open: { d: 'M 3 2.5 L 17 16.346' }
         }}
       />
     </svg>

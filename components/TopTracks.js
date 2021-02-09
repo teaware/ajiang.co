@@ -1,6 +1,6 @@
-import useSWR from "swr";
-import fetcher from "@/lib/fetcher";
-import Image from "next/image";
+import useSWR from 'swr';
+import fetcher from '@/lib/fetcher';
+import Image from 'next/image';
 
 function Track(track) {
   return (
@@ -35,7 +35,7 @@ function Track(track) {
 }
 
 export default function TopTracks() {
-  const { data } = useSWR("/api/top-tracks", fetcher);
+  const { data } = useSWR('/api/top-tracks', fetcher);
 
   if (!data) {
     return null;

@@ -1,10 +1,10 @@
-import { useTheme } from "next-themes";
+import { useTheme } from 'next-themes';
 
 export default function DarkMode() {
   const { theme, setTheme } = useTheme();
   return (
     <button
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="absolute top-4 right-4 w-8 h-8 mt-safe-top rounded-full transition-all duration-500 ease-in flex items-center justify-center select-none outline-none focus:outline-none border-none text-gray-600 dark:text-white"
     >
       <svg
