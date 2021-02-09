@@ -192,7 +192,7 @@ export default function Container(props) {
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
-          <div className="hidden sm:block">
+          {/* <div className="hidden sm:block">
             <NextLink href="/">
               <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
                 Home
@@ -216,7 +216,7 @@ export default function Container(props) {
             animate={isOpen ? 'open' : 'closed'}
           >
             <MenuToggle toggle={() => toggleOpen()} />
-          </motion.div>
+          </motion.div> */}
 
           <button
             aria-label="Toggle Dark Mode"
