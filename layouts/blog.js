@@ -1,6 +1,6 @@
 import { parseISO, format } from "date-fns";
 
-import Container from "../components/Container";
+import Container from "@/components/Container";
 
 const editUrl = (slug) =>
   `https://github.com/teaware/ajiang.co/edit/main/data/blog/${slug}.mdx`;

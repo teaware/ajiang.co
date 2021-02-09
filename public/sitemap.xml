@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ajiang.co/404</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co/about</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co/blog</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co/page</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co/top10</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co/blog/gatsby-netlify</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co/blog/pokedex</loc>
+  </url>
+
+  <url>
+    <loc>https://ajiang.co/blog/turn-off-face-id</loc>
+  </url>
+</urlset>

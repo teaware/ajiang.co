@@ -1,5 +1,5 @@
-import Container from "../components/Container";
-import TopTracks from "../components/TopTracks";
+import Container from "@/components/Container";
+import TopTracks from "@/components/TopTracks";
 
 export default function Home() {
   return (
