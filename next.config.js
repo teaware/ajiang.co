@@ -1,7 +1,8 @@
 module.exports = {
   images: {
     domains: [
-      'i.scdn.co' // Spotify Album Art
+      'i.scdn.co', // Spotify Album Art
+      'images.unsplash.com' // Unsplash Images
       // 'pbs.twimg.com' // Twitter Profile Picture
     ]
   },
