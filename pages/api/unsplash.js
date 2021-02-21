@@ -12,8 +12,6 @@ export default async (_, res) => {
 
   const likes = response.response.results;
 
-  // const { likes } = await toJson(userLikes);
-
   const imgs = likes.map((like) => ({
     id: like.id,
     alt: like.alt_description,
