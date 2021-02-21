@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <Container title="404 – water 🦦">
       <div className="flex flex-col justify-center items-start max-w-2xl px-5 pt-safe-top mx-auto my-12">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mb-4 md:mt-8">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4 md:mt-8">
           404 – Not found
         </h1>
         <p className="text-gray-600 dark:text-gray-400 mb-8">

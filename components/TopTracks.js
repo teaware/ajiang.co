@@ -4,18 +4,17 @@ import Image from 'next/image';
 
 function Track(track) {
   return (
-    <div className="flex flex-row items-center mb-8">
-      <p className="w-4 text-center text-sm font-bold text-gray-400 dark:text-gray-200">
-        {track.ranking}
-      </p>
-      <div className="w-16 flex flex-col pl-3">
-        <Image
-          alt="Spotify"
-          className="w-16 h-16"
-          height={60}
-          width={60}
-          src={track.albumImageUrl}
-        />
+    <li className="flex flex-row items-center mb-8">
+      <div className="w-16 flex flex-col">
+        <a href={track.songUrl} target="_blank" rel="noopener noreferrer">
+          <Image
+            alt="Spotify"
+            className="w-16 h-16"
+            height={60}
+            width={60}
+            src={track.albumImageUrl}
+          />
+        </a>
       </div>
       <div className="flex flex-col pl-3">
         <a
@@ -30,7 +29,7 @@ function Track(track) {
           {track.artist}
         </p>
       </div>
-    </div>
+    </li>
   );
 }
 
@@ -41,7 +40,11 @@ export default function TopTracks() {
     return null;
   }
 
-  return data.tracks.map((track, index) => (
-    <Track ranking={index + 1} key={track.songUrl} {...track} />
-  ));
+  return (
+    <ul className="list-disc list-inside my-4 lg:my-8">
+      {data.tracks.map((track, index) => (
+        <Track ranking={index + 1} key={track.songUrl} {...track} />
+      ))}
+    </ul>
+  );
 }

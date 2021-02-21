@@ -100,13 +100,13 @@ const MenuToggle = ({ toggle }) => (
     aria-label="Toggle Menu"
     type="button"
     onClick={toggle}
-    className="w-8 h-8 p-1 rounded-full flex items-center justify-center select-none outline-none focus:outline-none border-none"
+    className="w-8 h-8 rounded-full flex items-center justify-center select-none outline-none focus:outline-none border-none"
   >
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"
       viewBox="0 -2 23 23"
-      className="w-6 h-6 text-gray-600 dark:text-white"
+      className="w-6 h-6 text-gray-700 dark:text-white"
     >
       <Path
         variants={{
@@ -221,7 +221,7 @@ export default function Container(props) {
           <button
             aria-label="Toggle Dark Mode"
             type="button"
-            className="w-8 h-8 rounded-full p-1 select-none outline-none focus:outline-none border-none"
+            className="w-8 h-8 flex items-center justify-center rounded-full select-none outline-none focus:outline-none border-none"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
           >
             {mounted && (
@@ -229,7 +229,7 @@ export default function Container(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="-1 -1 24 24"
                 fill="currentColor"
-                className="h-7 w-7 text-gray-600 dark:text-white"
+                className="h-7 w-7 text-gray-700 dark:text-white"
               >
                 {theme === 'dark' ? (
                   <path

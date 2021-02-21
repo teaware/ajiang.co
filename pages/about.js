@@ -1,4 +1,5 @@
 import Container from '@/components/Container';
+import Unsplash from '@/components/Unsplash';
 
 export default function About() {
   return (
@@ -8,6 +9,7 @@ export default function About() {
           About
         </h1>
         <p className="mb-4">关于</p>
+        <Unsplash />
       </div>
     </Container>
   );
