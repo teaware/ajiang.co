@@ -19,11 +19,20 @@ module.exports = {
         otter: {
           '0%, 100%': { transform: 'translate3d(0, -4px, 0)' },
           '50%': { transform: 'translate3d(0, 4px, 0)' }
+        },
+        pulse: {
+          '0%, 100%': {
+            opacity: 1
+          },
+          '50%': {
+            opacity: 0
+          }
         }
       },
       animation: {
         wave: 'wave 6s linear -2s infinite',
-        otter: 'otter 4s ease-in-out infinite'
+        otter: 'otter 4s ease-in-out infinite',
+        pulse: 'pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite'
       },
       typography: (theme) => ({
         DEFAULT: {

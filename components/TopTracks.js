@@ -2,49 +2,117 @@ import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 import Image from 'next/image';
 
-function Track(track) {
+export default function TopTracks() {
+  const { data, error } = useSWR('/api/top-tracks', fetcher);
+
+  const isLoading = !data && !error;
+
   return (
-    <li className="flex flex-row items-center mb-8">
-      <div className="w-16 flex flex-col">
-        <a href={track.songUrl} target="_blank" rel="noopener noreferrer">
-          <Image
-            alt="Spotify"
-            className="w-16 h-16"
-            height={60}
-            width={60}
-            src={track.albumImageUrl}
-          />
-        </a>
-      </div>
-      <div className="flex flex-col pl-3">
-        <a
-          className="font-medium text-gray-900 dark:text-white truncate w-60 md:w-full overflow-hidden"
-          href={track.songUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          {track.title}
-        </a>
-        <p className="text-gray-500 dark:text-gray-300 mb-4 truncate w-60 md:w-full overflow-hidden">
-          {track.artist}
-        </p>
-      </div>
-    </li>
+    <div className="my-4 lg:my-8">
+      {isLoading ? (
+        <>
+          <div className="mb-8">
+            <div className="animate-pulse">
+              <SkeletonTrack type="long" />
+            </div>
+          </div>
+          <div className="mb-8">
+            <div
+              className="animate-pulse"
+              style={{
+                animationFillMode: 'backwards',
+                animationDelay: '150ms'
+              }}
+            >
+              <SkeletonTrack type="short" />
+            </div>
+          </div>
+          <div className="mb-8">
+            <div
+              className="animate-pulse"
+              style={{
+                animationFillMode: 'backwards',
+                animationDelay: '300ms'
+              }}
+            >
+              <SkeletonTrack type="long" />
+            </div>
+          </div>
+        </>
+      ) : (
+        data.tracks.map((track, i) => (
+          <div
+            variants={{
+              hidden: (i) => ({
+                opacity: 0,
+                y: -50 * i
+              }),
+              visible: (i) => ({
+                opacity: 1,
+                y: 0,
+                transition: {
+                  delay: i * 0.025
+                }
+              })
+            }}
+            initial="hidden"
+            animate="visible"
+            custom={i}
+            ranking={i + 1}
+            key={track.songUrl}
+            className="flex flex-row items-center mb-8"
+          >
+            <div className="w-16 flex flex-col">
+              <a href={track.songUrl} target="_blank" rel="noopener noreferrer">
+                <Image
+                  alt="Spotify"
+                  className="w-16 h-16"
+                  height={60}
+                  width={60}
+                  src={track.albumImageUrl}
+                />
+              </a>
+            </div>
+            <div className="flex flex-col pl-3">
+              <a
+                className="font-medium text-gray-900 dark:text-white truncate w-60 md:w-full overflow-hidden"
+                href={track.songUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {track.title}
+              </a>
+              <p className="text-gray-500 dark:text-gray-300 mb-3 truncate w-60 md:w-full overflow-hidden">
+                {track.artist}
+              </p>
+            </div>
+          </div>
+        ))
+      )}
+    </div>
   );
 }
 
-export default function TopTracks() {
-  const { data } = useSWR('/api/top-tracks', fetcher);
-
-  if (!data) {
-    return null;
-  }
-
+function SkeletonTrack({ type = 'short' }) {
   return (
-    <ul className="list-disc list-inside my-4 lg:my-8">
-      {data.tracks.map((track, index) => (
-        <Track ranking={index + 1} key={track.songUrl} {...track} />
-      ))}
-    </ul>
+    <div className="flex">
+      <div className="w-16 h-16 mr-3 bg-gray-200 rounded-sm" />
+
+      <div className="flex flex-col flex-1 w-60">
+        <div className="w-1/3 h-4 mt-1 bg-gray-200 rounded" />
+
+        <div className="mt-1 mb-1 space-y-1">
+          {type === 'short' ? (
+            <div className="w-1/2 h-4 pt-1">
+              <div className="h-full bg-gray-200 rounded"></div>
+            </div>
+          ) : (
+            <div className="w-11/12 h-4 pt-1">
+              <div className="h-full bg-gray-200 rounded"></div>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }
