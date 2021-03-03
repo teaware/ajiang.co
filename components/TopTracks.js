@@ -1,6 +1,7 @@
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 import Image from 'next/image';
+import { AnimatePresence, motion } from 'framer-motion';
 
 export default function TopTracks() {
   const { data, error } = useSWR('/api/top-tracks', fetcher);
@@ -40,54 +41,62 @@ export default function TopTracks() {
           </div>
         </>
       ) : (
-        data.tracks.map((track, i) => (
-          <div
-            variants={{
-              hidden: (i) => ({
-                opacity: 0,
-                y: -50 * i
-              }),
-              visible: (i) => ({
-                opacity: 1,
-                y: 0,
-                transition: {
-                  delay: i * 0.025
-                }
-              })
-            }}
-            initial="hidden"
-            animate="visible"
-            custom={i}
-            ranking={i + 1}
-            key={track.songUrl}
-            className="flex flex-row items-center mb-8"
-          >
-            <div className="w-16 flex flex-col">
-              <a href={track.songUrl} target="_blank" rel="noopener noreferrer">
-                <Image
-                  alt="Spotify"
-                  className="w-16 h-16"
-                  height={60}
-                  width={60}
-                  src={track.albumImageUrl}
-                />
-              </a>
-            </div>
-            <div className="flex flex-col pl-3">
-              <a
-                className="font-medium text-gray-900 dark:text-white truncate w-60 md:w-full overflow-hidden"
-                href={track.songUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {track.title}
-              </a>
-              <p className="text-gray-500 dark:text-gray-300 mb-3 truncate w-60 md:w-full overflow-hidden">
-                {track.artist}
-              </p>
-            </div>
-          </div>
-        ))
+        <AnimatePresence>
+          {data.tracks.map((track, i) => (
+            <motion.div
+              variants={{
+                hidden: (i) => ({
+                  opacity: 0,
+                  y: -50 * i
+                }),
+                visible: (i) => ({
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    delay: i * 0.025
+                  }
+                })
+              }}
+              initial="hidden"
+              animate="visible"
+              custom={i}
+              ranking={i + 1}
+              key={track.songUrl}
+              className="flex flex-row items-center mb-8"
+            >
+              <div className="flex flex-col">
+                <a
+                  href={track.songUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <div className="w-16 h-16 shadow-lg relative">
+                    <Image
+                      className="rounded-sm"
+                      alt="Spotify"
+                      layout="fill"
+                      objectFit="cover"
+                      src={track.albumImageUrl}
+                    />
+                  </div>
+                </a>
+              </div>
+              <div className="flex flex-col pl-3">
+                <a
+                  className="font-medium text-gray-900 dark:text-white truncate w-60 md:w-full overflow-hidden"
+                  href={track.songUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {track.title}
+                </a>
+                <p className="text-gray-500 dark:text-gray-300 mb-3 truncate w-60 md:w-full overflow-hidden">
+                  {track.artist}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </AnimatePresence>
       )}
     </div>
   );
