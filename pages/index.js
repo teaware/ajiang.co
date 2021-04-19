@@ -6,20 +6,11 @@ export default function Home() {
     <Container title="阿江" description="be water my friend">
       <div className="h-screen overflow-x-hidden">
         <div className="h-3/4 relative flex flex-col items-center justify-center lg:items-stretch">
-          <div className="grid justify-center px-4 ml-0 lg:self-start lg:ml-48">
+          <div className="w-full max-w-4xl grid justify-center lg:justify-start px-4 mx-auto">
             <h1 className="text-6xl lg:text-8xl text-black mb-4 dark:text-gray-100">
               water <span className="animate-otter inline-block">🦦</span>
             </h1>
-            <p className="block self-end ml-auto text-xl font-mono">
-              <a
-                className="dark:text-gray-100 pb-1 border-double border-b-4 border-transparent hover:border-current transition-all duration-500 ease-in-out"
-                href="https://blog.ajiang.co"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                go to my blog
-              </a>
-            </p>
+            <p className="block self-end ml-auto text-xl font-mono">flows</p>
           </div>
           <svg
             className="absolute bottom-0 left-0 block w-full h-20 lg:h-40 max-h-screen fill-current text-green-600 dark:text-green-900"
