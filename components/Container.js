@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import { useState, useEffect, useRef } from 'react';
 import { useTheme } from 'next-themes';
 import NextLink from 'next/link';
+import useSound from 'use-sound';
 
 import { motion, useCycle } from 'framer-motion';
 
@@ -164,6 +165,9 @@ export default function Container(props) {
   const containerRef = useRef(null);
   const { height } = useDimensions(containerRef);
 
+  const [playOn] = useSound('/sounds/switch-on.mp3', { volume: 0.5 });
+  const [playOff] = useSound('/sounds/switch-off.mp3', { volume: 0.5 });
+
   return (
     <>
       <Head>
@@ -187,7 +191,7 @@ export default function Container(props) {
         <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
       </Head>
 
-      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-600">
+      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-700">
         <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center text-base w-full max-w-4xl p-4 mt-safe-top z-10">
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
@@ -223,22 +227,25 @@ export default function Container(props) {
             type="button"
             className="w-8 h-8 flex items-center justify-center rounded-full select-none outline-none focus:outline-none border-none"
             onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+            onMouseUp={() => {
+              theme === 'dark' ? playOff() : playOn();
+            }}
           >
             {mounted && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="-1 -1 24 24"
                 fill="currentColor"
-                className="h-7 w-7 text-gray-700 dark:text-white"
+                className="h-7 w-7 text-gray-500 hover:text-gray-700 dark:text-gray-300 dark:hover:text-white"
               >
                 {theme === 'dark' ? (
+                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
+                ) : (
                   <path
                     fillRule="evenodd"
                     clipRule="evenodd"
                     d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
                   />
-                ) : (
-                  <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
                 )}
               </svg>
             )}
