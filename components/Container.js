@@ -236,7 +236,7 @@ export default function Container(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="-1 -1 24 24"
                 fill="currentColor"
-                className="h-7 w-7 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                className="h-7 w-7 flex items-center justify-center text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
               >
                 {theme === 'dark' ? (
                   <motion.path
