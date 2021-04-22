@@ -1,12 +1,15 @@
 import useSWR from 'swr';
 import fetcher from '@/lib/fetcher';
 import Image from 'next/image';
-import { AnimatePresence, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
+import useSound from 'use-sound';
 
 export default function TopTracks() {
   const { data, error } = useSWR('/api/top-tracks', fetcher);
 
   const isLoading = !data && !error;
+  const [loading] = useSound('/sounds/loading.mp3', { volume: 0.5 });
+  const [loaded] = useSound('/sounds/loaded.mp3', { volume: 0.5 });
 
   return (
     <div className="my-4 lg:my-8">
@@ -41,7 +44,7 @@ export default function TopTracks() {
           </div>
         </>
       ) : (
-        <AnimatePresence>
+        <>
           {data.tracks.map((track, i) => (
             <motion.div
               variants={{
@@ -96,7 +99,7 @@ export default function TopTracks() {
               </div>
             </motion.div>
           ))}
-        </AnimatePresence>
+        </>
       )}
     </div>
   );
