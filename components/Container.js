@@ -245,7 +245,7 @@ export default function Container(props) {
                   </motion.svg>
                 ) : (
                   <motion.svg
-                    animate={{ rotate: 45 }}
+                    animate={{ rotate: 90 }}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
                     fill="currentColor"
