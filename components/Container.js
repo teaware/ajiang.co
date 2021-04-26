@@ -236,7 +236,7 @@ export default function Container(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 20 20"
                 fill="currentColor"
-                className="h-6 w-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                className="h-6 w-6 flex items-center justify-center text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
               >
                 {theme === 'dark' ? (
                   <motion.g animate={{ rotate: 0 }} className="block">
