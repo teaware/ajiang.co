@@ -204,7 +204,7 @@ export default function Container(props) {
     }
   };
 
-  if (!mounted) return null;
+  // if (!mounted) return null;
 
   return (
     <>
