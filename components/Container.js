@@ -168,6 +168,44 @@ export default function Container(props) {
   const [playOn] = useSound('/sounds/switch-on.mp3', { volume: 0.5 });
   const [playOff] = useSound('/sounds/switch-off.mp3', { volume: 0.5 });
 
+  // darkMode toggle animation
+  const vRotate = {
+    dark: {
+      transform: 'rotate(40deg)'
+    },
+    light: {
+      transform: 'rotate(90deg)'
+    }
+  };
+  const vLine = {
+    dark: {
+      scale: 0
+    },
+    light: {
+      scale: 1
+    }
+  };
+  const vMCircle = {
+    dark: {
+      cx: 12,
+      cy: 4
+    },
+    light: {
+      cx: 30,
+      cy: 0
+    }
+  };
+  const vCCircle = {
+    dark: {
+      r: 9
+    },
+    light: {
+      r: 5
+    }
+  };
+
+  if (!mounted) return null;
+
   return (
     <>
       <Head>
@@ -222,34 +260,118 @@ export default function Container(props) {
             <MenuToggle toggle={() => toggleOpen()} />
           </motion.div> */}
 
-          <button
-            aria-label="Toggle Dark Mode"
-            type="button"
-            className="w-8 h-8 flex items-center justify-center rounded-full select-none outline-none focus:outline-none border-none"
-            onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-            onMouseUp={() => {
-              theme === 'dark' ? playOff() : playOn();
-            }}
-          >
-            {mounted && (
-              <svg
+          <motion.div animate={theme === 'dark' ? 'dark' : 'light'}>
+            <button
+              aria-label="Toggle Dark Mode"
+              type="button"
+              className="w-8 h-8 flex items-center justify-center rounded-full select-none outline-none focus:outline-none border-none"
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              onMouseUp={() => {
+                theme === 'dark' ? playOff() : playOn();
+              }}
+            >
+              <motion.svg
                 xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
+                viewBox="0 0 24 24"
                 fill="currentColor"
-                className="h-6 w-6 flex items-center justify-center text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+                variants={vRotate}
+                className="h-6 w-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
               >
-                {theme === 'dark' ? (
-                  <motion.g animate={{ rotate: 0 }} className="block">
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                  </motion.g>
-                ) : (
-                  <motion.g animate={{ rotate: 45 }} className="block">
-                    <path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" />
-                  </motion.g>
-                )}
-              </svg>
-            )}
-          </button>
+                <mask id="moon-mask">
+                  <rect x="0" y="0" width="100%" height="100%" fill="white" />
+                  <motion.circle
+                    variants={vMCircle}
+                    cx="12"
+                    cy="4"
+                    r="9"
+                    fill="black"
+                  />
+                </mask>
+                <motion.circle
+                  variants={vCCircle}
+                  cx="12"
+                  cy="12"
+                  r="9"
+                  mask="url(#moon-mask)"
+                />
+
+                <motion.g variants={vLine} stroke="currentColor">
+                  <line
+                    x1="12"
+                    y1="1"
+                    x2="12"
+                    y2="3"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <line
+                    x1="12"
+                    y1="21"
+                    x2="12"
+                    y2="23"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <line
+                    x1="4.22"
+                    y1="4.22"
+                    x2="5.64"
+                    y2="5.64"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <line
+                    x1="18.36"
+                    y1="18.36"
+                    x2="19.78"
+                    y2="19.78"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <line
+                    x1="1"
+                    y1="12"
+                    x2="3"
+                    y2="12"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <line
+                    x1="21"
+                    y1="12"
+                    x2="23"
+                    y2="12"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <line
+                    x1="4.22"
+                    y1="19.78"
+                    x2="5.64"
+                    y2="18.36"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                  <line
+                    x1="18.36"
+                    y1="5.64"
+                    x2="19.78"
+                    y2="4.22"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </motion.g>
+              </motion.svg>
+            </button>
+          </motion.div>
         </nav>
         <main id="skip">{children}</main>
         <motion.div
