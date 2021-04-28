@@ -169,12 +169,18 @@ export default function Container(props) {
   const [playOff] = useSound('/sounds/switch-off.mp3', { volume: 0.5 });
 
   // darkMode toggle animation
+  const trans = {
+    type: 'spring',
+    damping: 14,
+    mass: 0.75,
+    stiffness: 100
+  };
   const vRotate = {
     dark: {
-      transform: 'rotate(40deg)'
+      rotate: 40
     },
     light: {
-      transform: 'rotate(90deg)'
+      rotate: 90
     }
   };
   const vLine = {
@@ -275,12 +281,14 @@ export default function Container(props) {
                 viewBox="0 0 24 24"
                 fill="currentColor"
                 variants={vRotate}
+                transition={trans}
                 className="h-6 w-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
               >
                 <mask id="moon-mask">
                   <rect x="0" y="0" width="100%" height="100%" fill="white" />
                   <motion.circle
                     variants={vMCircle}
+                    transition={trans}
                     cx="12"
                     cy="4"
                     r="9"
@@ -289,13 +297,18 @@ export default function Container(props) {
                 </mask>
                 <motion.circle
                   variants={vCCircle}
+                  transition={trans}
                   cx="12"
                   cy="12"
                   r="9"
                   mask="url(#moon-mask)"
                 />
 
-                <motion.g variants={vLine} stroke="currentColor">
+                <motion.g
+                  variants={vLine}
+                  transition={trans}
+                  stroke="currentColor"
+                >
                   <line
                     x1="12"
                     y1="1"
