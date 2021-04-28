@@ -177,10 +177,10 @@ export default function Container(props) {
   };
   const vRotate = {
     dark: {
-      transform: 'rotate(40deg)'
+      rotate: 40
     },
     light: {
-      transform: 'rotate(90deg)'
+      rotate: 90
     }
   };
   const vLine = {
@@ -268,7 +268,7 @@ export default function Container(props) {
 
           {mounted && (
             <motion.div
-              initial={theme === 'dark' ? 'dark' : 'light'}
+              initial="dark"
               animate={theme === 'dark' ? 'dark' : 'light'}
             >
               <button
