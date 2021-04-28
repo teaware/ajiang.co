@@ -267,10 +267,7 @@ export default function Container(props) {
           </motion.div> */}
 
           {mounted && (
-            <motion.div
-              initial="dark"
-              animate={theme === 'dark' ? 'dark' : 'light'}
-            >
+            <motion.div animate={theme === 'dark' ? 'dark' : 'light'}>
               <button
                 aria-label="Toggle Dark Mode"
                 type="button"
