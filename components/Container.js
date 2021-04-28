@@ -177,10 +177,10 @@ export default function Container(props) {
   };
   const vRotate = {
     dark: {
-      rotate: 40
+      transform: 'rotate(40deg)'
     },
     light: {
-      rotate: 90
+      transform: 'rotate(90deg)'
     }
   };
   const vLine = {
