@@ -86,14 +86,14 @@ export default function TopTracks() {
               </div>
               <div className="flex flex-col pl-3">
                 <a
-                  className="font-medium text-gray-900 dark:text-white truncate w-60 md:w-full overflow-hidden"
+                  className="font-medium text-gray-900 dark:text-white truncate w-52 sm:w-full overflow-hidden"
                   href={track.songUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   {track.title}
                 </a>
-                <p className="text-gray-500 dark:text-gray-300 mb-3 truncate w-60 md:w-full overflow-hidden">
+                <p className="text-gray-500 dark:text-gray-300 mb-3 truncate w-52 sm:w-full overflow-hidden">
                   {track.artist}
                 </p>
               </div>
