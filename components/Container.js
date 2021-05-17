@@ -171,7 +171,7 @@ export default function Container(props) {
   // darkMode toggle animation
   const trans = {
     type: 'spring',
-    damping: 14,
+    damping: 10,
     mass: 0.75,
     stiffness: 100
   };
@@ -191,6 +191,7 @@ export default function Container(props) {
       scale: 1
     }
   };
+  // maskedCircle
   const vMCircle = {
     dark: {
       cx: 12,
@@ -201,6 +202,7 @@ export default function Container(props) {
       cy: 0
     }
   };
+  // centerCircle
   const vCCircle = {
     dark: {
       r: 9
