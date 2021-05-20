@@ -52,6 +52,7 @@ const Items = () => (
 );
 const links = [
   { to: '/', name: 'Home' },
+  { to: '/projects', name: 'Projects' },
   { to: '/blog', name: 'Blog' },
   { to: '/about', name: 'About' }
 ];
@@ -238,25 +239,22 @@ export default function Container(props) {
       </Head>
 
       <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-700">
-        <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center text-base w-full max-w-4xl p-4 mt-safe-top z-10">
+        <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center text-base w-full max-w-2xl px-5 py-4 mt-safe-top z-10">
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
-          {/* <div className="hidden sm:block">
+          <div className="hidden sm:block">
             <NextLink href="/">
-              <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
-                Home
-              </a>
+              <a className="pr-5 text-gray-900 dark:text-gray-100">Home</a>
+            </NextLink>
+            <NextLink href="/projects">
+              <a className="pr-5 text-gray-900 dark:text-gray-100">Projects</a>
             </NextLink>
             <NextLink href="/blog">
-              <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
-                Blog
-              </a>
+              <a className="pr-5 text-gray-900 dark:text-gray-100">Blog</a>
             </NextLink>
             <NextLink href="/about">
-              <a className="p-1 sm:p-4 text-gray-900 dark:text-gray-100">
-                About
-              </a>
+              <a className="pr-5 text-gray-900 dark:text-gray-100">About</a>
             </NextLink>
           </div>
 
@@ -266,7 +264,7 @@ export default function Container(props) {
             animate={isOpen ? 'open' : 'closed'}
           >
             <MenuToggle toggle={() => toggleOpen()} />
-          </motion.div> */}
+          </motion.div>
 
           <motion.div
             initial={theme === 'dark' ? 'dark' : 'light'}

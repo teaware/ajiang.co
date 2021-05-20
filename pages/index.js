@@ -6,7 +6,7 @@ export default function Home() {
     <Container title="阿江" description="be water my friend">
       <div className="h-screen overflow-x-hidden">
         <div className="h-3/4 relative flex flex-col items-center justify-center lg:items-stretch">
-          <div className="w-full max-w-4xl grid justify-center lg:justify-start px-4 mx-auto">
+          <div className="w-full max-w-2xl grid justify-center lg:justify-start px-4 mx-auto">
             <h1 className="text-6xl lg:text-8xl whitespace-nowrap text-black mb-4 dark:text-gray-100">
               water <span className="animate-otter inline-block">🦦</span>
             </h1>
