@@ -243,18 +243,26 @@ export default function Container(props) {
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
-          <div className="hidden sm:block">
+          <div className="hidden sm:block font-bold">
             <NextLink href="/">
-              <a className="pr-5 text-gray-900 dark:text-gray-100">Home</a>
+              <a className="pr-5 text-gray-600 dark:text-gray-100 hover:underline">
+                Home
+              </a>
             </NextLink>
             <NextLink href="/projects">
-              <a className="pr-5 text-gray-900 dark:text-gray-100">Projects</a>
+              <a className="pr-5 text-gray-600 dark:text-gray-100 hover:underline">
+                Projects
+              </a>
             </NextLink>
             <NextLink href="/blog">
-              <a className="pr-5 text-gray-900 dark:text-gray-100">Blog</a>
+              <a className="pr-5 text-gray-600 dark:text-gray-100 hover:underline">
+                Blog
+              </a>
             </NextLink>
             <NextLink href="/about">
-              <a className="pr-5 text-gray-900 dark:text-gray-100">About</a>
+              <a className="pr-5 text-gray-600 dark:text-gray-100 hover:underline">
+                About
+              </a>
             </NextLink>
           </div>
 
