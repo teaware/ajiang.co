@@ -1,5 +1,5 @@
 ---
-title: '用 Framer Motion 创造 SVG 动画「Dark Mode 开关」'
+title: '用 Framer Motion 创造 SVG 动画：「Dark Mode 开关」'
 publishedAt: '2021-05-17'
 summary: '学习如何使用 Framer Motion 创造 SVG 动画，让「黑暗模式开关」更生动...'
 image: '/img/using-framer-motion-to-animate-svg-icon/banner.png'
@@ -19,9 +19,9 @@ image: '/img/using-framer-motion-to-animate-svg-icon/banner.png'
 
 提升用户体验是 web 开发从业者的主要目标，有时我们会看到一些精妙细微的动画效果给整个网站注入活力。今天我想从黑暗模式开关入手，探索 Framer Motion 的用途。具体来说就是从太阳到月亮的渐进切换。
 
-### 🌞 🌛 图标
+### 🌞 图标
 
-以下是太阳的 SVG 图标代码，而月亮图标我们稍后用 mask 来创建
+以下是太阳的 SVG 图标代码，而月亮图标我们稍后用蒙板（mask）来创建
 
 ```jsx
 <svg
@@ -47,11 +47,9 @@ image: '/img/using-framer-motion-to-animate-svg-icon/banner.png'
 </svg>
 ```
 
-### 🌞 🌛 两个图标合二为一
+### 🌛 图标
 
-首先，我们给 circle 加上填充色（黑色）以便于创建 mask
-
-然后用 `<g>` 标签包裹所有 line 元素，本质上相当于给 SVG 元素加上一个 div
+用 `<g>` 标签包裹所有 line 元素，本质上相当于给 `line` 元素加上一个 div
 
 ```jsx
 <svg
@@ -79,9 +77,9 @@ image: '/img/using-framer-motion-to-animate-svg-icon/banner.png'
 </svg>
 ```
 
-接下来创建 `<mask>` 并给它一个 `id`, 使之与 `<circle>` 标签关联。
+接下来创建蒙板 `<mask>` 并给它一个 `id`, 使之与 `<circle>` 标签关联。
 
-```jsx{2,5}
+```jsx{2,4,5}
 <svg
   xmlns="http://www.w3.org/2000/svg"
   width="24"
@@ -95,7 +93,6 @@ image: '/img/using-framer-motion-to-animate-svg-icon/banner.png'
 >
   <mask id="moon-mask">
     <rect x="0" y="0" width="100%" height="100%" fill="white" />
-    <circle cx="12" cy="4" r="9" fill="black" />
   </mask>
   <circle cx="12" cy="12" r="5" mask="url(#moon-mask)" />
   <g stroke="currentColor">
@@ -109,4 +106,153 @@ image: '/img/using-framer-motion-to-animate-svg-icon/banner.png'
     <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
   </g>
 </svg>
+```
+
+我们将暂时无法看到我们的图标，因为蒙版假定所有内容都必须是透明的。因此，让我们开始创建一个将显示整个图标的伪画布。为了实现这一点，我们将在遮罩内创建一个`<rect/>`（矩形），该矩形具有与 SVG 相同的高度和宽度，并用白色填充，该白色将显示所有内容
+
+现在，我要通过蒙版显示图标，我们必须另外绘制一个带有黑色填充的圆圈，该圆圈将遮住原有的圆的一部分，这样就可以显示一个有缺口的月亮。在此之前，我们将：增加圆的半径（因为太阳的半径小于月亮），并暂时隐藏射线；在蒙版中添加一个圆圈。
+
+```jsx
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  width="24"
+  height="24"
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  style={{ transform: 'rotate(40deg)' }}
+>
+  <mask id="moon-mask">
+    <rect x="0" y="0" width="100%" height="100%" fill="white" />
+    <circle cx="12" cy="4" r="9" fill="black" />
+  </mask>
+  <circle cx="12" cy="12" r="9" mask="url(#moon-mask)" />
+  {/* <g stroke="currentColor">
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </g> */}
+</svg>
+```
+
+蒙板里的圆将位于中心园的相同 x 坐标，但将位于顶部以仅隐藏中心圆的一小部分。另外，我们将使用样式属性旋转 SVG（40°），将月亮显示在正确位置。
+
+到这一步，我们的两个图标都准备好了。
+
+### 用 Framer Motion 让图标动起来 💫
+
+首先安装 Framer Motion
+
+```bash
+yarn add framer-motion
+```
+
+然后我们创建对象用来存储太阳和月亮图标的属性
+
+```jsx
+// maskedCircle
+const vMCircle = {
+  dark: {
+    cx: 12,
+    cy: 4
+  },
+  light: {
+    cx: 30,
+    cy: 0
+  }
+};
+// centerCircle
+const vCCircle = {
+  dark: {
+    r: 9
+  },
+  light: {
+    r: 5
+  }
+};
+const vRotate = {
+  dark: {
+    rotate: 40
+  },
+  light: {
+    rotate: 90
+  }
+};
+const vLine = {
+  dark: {
+    scale: 0
+  },
+  light: {
+    scale: 1
+  }
+};
+```
+
+你可能已经注意到，在 dark 模式下，我们将图标旋转到 40° 而不是 0°，样做是为了使动画从头到尾看起来更好。
+
+锦上添花！我们额外添加一些弹簧（spring）配置使我们的动画更加流畅和酷炫。
+
+```jsx
+const trans = {
+  type: 'spring',
+  damping: 10,
+  mass: 0.75,
+  stiffness: 100
+};
+```
+
+全部放到一起，用 `motion` 触发动画
+
+```jsx
+<motion.svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="none"
+  variants={vRotate}
+  transition={trans}
+  strokeWidth="2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
+  className="h-6 w-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
+>
+  <mask id="moon-mask">
+    <rect x="0" y="0" width="100%" height="100%" fill="white" />
+    <motion.circle
+      variants={vMCircle}
+      transition={trans}
+      cx="12"
+      cy="4"
+      r="9"
+      fill="black"
+    />
+  </mask>
+  <motion.circle
+    variants={vCCircle}
+    transition={trans}
+    fill="currentColor"
+    cx="12"
+    cy="12"
+    r="9"
+    mask="url(#moon-mask)"
+  />
+
+  <motion.g variants={vLine} transition={trans} stroke="currentColor">
+    <line x1="12" y1="1" x2="12" y2="3" />
+    <line x1="12" y1="21" x2="12" y2="23" />
+    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
+    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
+    <line x1="1" y1="12" x2="3" y2="12" />
+    <line x1="21" y1="12" x2="23" y2="12" />
+    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
+    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
+  </motion.g>
+</motion.svg>
 ```
