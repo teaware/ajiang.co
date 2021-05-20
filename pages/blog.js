@@ -25,7 +25,7 @@ export default function Blog({ posts }) {
           Blog
         </h1>
         <p className="mb-4">
-          第一次写博客大概是2010年（或者更早），许多平台都有涉及，但是更新一点不勤快😂
+          第一次写博客大概是2010年（或者更早），许多平台都有涉及，但是更新不多
         </p>
         <p className="mb-4">目前还在线上的有这些...</p>
         <ul className="mb-4">
