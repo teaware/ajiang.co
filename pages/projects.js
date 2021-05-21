@@ -22,7 +22,7 @@ export default function Projects() {
                     src="/img/projects/photos.png"
                     width={1280}
                     height={800}
-                    className="rounded-md shadow-lg"
+                    className="rounded-md"
                   />
                 </a>
               </div>
@@ -36,7 +36,7 @@ export default function Projects() {
                     src="/img/projects/pokedex.png"
                     width={1280}
                     height={800}
-                    className="rounded-md shadow-lg"
+                    className="rounded-md"
                   />
                 </a>
               </div>
@@ -52,7 +52,7 @@ export default function Projects() {
                     src="/img/projects/3d.png"
                     width={1280}
                     height={800}
-                    className="rounded-md shadow-lg"
+                    className="rounded-md"
                   />
                 </a>
               </div>
@@ -66,7 +66,7 @@ export default function Projects() {
                     src="/img/projects/blog_starter.png"
                     width={1280}
                     height={800}
-                    className="rounded-md shadow-lg"
+                    className="rounded-md"
                   />
                 </a>
               </div>
@@ -84,13 +84,13 @@ export default function Projects() {
                   </PastProjectCard>
                 </div>
                 {/* <div className="w-full px-2 md:w-1/3">
-                  <PastProjectCard href="https://embermap.github.io/ember-data-storefront/">
-                    Storefront
+                  <PastProjectCard href="https://3d.ajiang.co/tie-fighter">
+                    Tie Fighter
                   </PastProjectCard>
                 </div>
                 <div className="w-full px-2 md:w-1/3">
-                  <PastProjectCard href="https://github.com/embermap/ember-cli-tailwind">
-                    Ember CLI Tailwind
+                  <PastProjectCard href="https://3d.ajiang.co/tie-fighter">
+                    Tie Fighter
                   </PastProjectCard>
                 </div> */}
               </div>
