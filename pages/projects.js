@@ -22,7 +22,7 @@ export default function Projects() {
                     src="/img/projects/photos.png"
                     width={1280}
                     height={800}
-                    className="rounded-md"
+                    className="rounded-md shadow-lg"
                   />
                 </a>
               </div>
@@ -36,7 +36,7 @@ export default function Projects() {
                     src="/img/projects/pokedex.png"
                     width={1280}
                     height={800}
-                    className="rounded-md"
+                    className="rounded-md shadow-lg"
                   />
                 </a>
               </div>
@@ -52,7 +52,7 @@ export default function Projects() {
                     src="/img/projects/3d.png"
                     width={1280}
                     height={800}
-                    className="rounded-md"
+                    className="rounded-md shadow-lg"
                   />
                 </a>
               </div>
@@ -66,7 +66,7 @@ export default function Projects() {
                     src="/img/projects/blog_starter.png"
                     width={1280}
                     height={800}
-                    className="rounded-md"
+                    className="rounded-md shadow-lg"
                   />
                 </a>
               </div>
@@ -104,7 +104,7 @@ export default function Projects() {
 
 const PastProjectCard = (props) => (
   <a
-    className="flex items-center justify-center h-24 px-4 mt-4 font-medium leading-snug text-center text-gray-600 bg-white rounded shadow hover:text-gray-700"
+    className="flex items-center justify-center h-24 px-4 mt-4 font-medium leading-snug text-center text-gray-500 bg-white rounded shadow hover:text-gray-700"
     href={props.href}
     target="_blank"
     rel="noopener noreferrer"
