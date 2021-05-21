@@ -58,7 +58,7 @@ export default function Projects() {
               </div>
               <div className="mt-12 md:w-1/2 md:mx-4">
                 <a
-                  href="https://gatsby-starter-point.netlify.app/"
+                  href="https://starter-point.vercel.app/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
