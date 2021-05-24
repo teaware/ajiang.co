@@ -125,7 +125,7 @@ export default function Container(props) {
           </div>
 
           <motion.div
-            initial={theme === 'dark' ? 'dark' : 'light'}
+            initial={false}
             animate={theme === 'dark' ? 'dark' : 'light'}
           >
             <button
