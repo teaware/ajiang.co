@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import NextLink from 'next/link';
+import Link from 'next/link';
 import useSound from 'use-sound';
 
 import { motion } from 'framer-motion';
@@ -79,7 +79,7 @@ export default function Container(props) {
         <title>{meta.title}</title>
         <meta name="robots" content="follow, index" />
         <meta content={meta.description} name="description" />
-        <meta property="og:url" content={`https://ajing.co${router.asPath}`} />
+        <meta property="og:url" content={`https://ajiang.co${router.asPath}`} />
         <meta property="og:type" content={meta.type} />
         <meta property="og:site_name" content="阿江" />
         <meta property="og:description" content={meta.description} />
@@ -101,28 +101,28 @@ export default function Container(props) {
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
-          {/* <div className="font-bold">
-            <NextLink href="/">
+          <div className="font-bold">
+            <Link href="/">
               <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
                 Home
               </a>
-            </NextLink>
-            <NextLink href="/projects">
+            </Link>
+            <Link href="/projects">
               <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
                 Projects
               </a>
-            </NextLink>
-            <NextLink href="/blog">
+            </Link>
+            <Link href="/blog">
               <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
                 Blog
               </a>
-            </NextLink>
-            <NextLink href="/about">
+            </Link>
+            <Link href="/about">
               <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
                 About
               </a>
-            </NextLink>
-          </div> */}
+            </Link>
+          </div>
 
           <motion.div
             initial={theme === 'dark' ? 'dark' : 'light'}
