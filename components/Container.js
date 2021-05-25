@@ -101,6 +101,29 @@ export default function Container(props) {
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
+          {/* <div className="font-bold">
+            <NextLink href="/">
+              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
+                Home
+              </a>
+            </NextLink>
+            <NextLink href="/projects">
+              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
+                Projects
+              </a>
+            </NextLink>
+            <NextLink href="/blog">
+              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
+                Blog
+              </a>
+            </NextLink>
+            <NextLink href="/about">
+              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
+                About
+              </a>
+            </NextLink>
+          </div> */}
+
           <motion.div
             initial={theme === 'dark' ? 'dark' : 'light'}
             animate={theme === 'dark' ? 'dark' : 'light'}
@@ -223,29 +246,6 @@ export default function Container(props) {
               </motion.svg>
             </button>
           </motion.div>
-
-          <div className="font-bold">
-            <NextLink href="/">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                Home
-              </a>
-            </NextLink>
-            <NextLink href="/projects">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                Projects
-              </a>
-            </NextLink>
-            <NextLink href="/blog">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                Blog
-              </a>
-            </NextLink>
-            <NextLink href="/about">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                About
-              </a>
-            </NextLink>
-          </div>
         </nav>
         <main id="skip">{children}</main>
       </div>
