@@ -44,10 +44,12 @@ export default function Container(props) {
   };
   const vLine = {
     dark: {
-      scale: 0
+      scale: 0,
+      opacity: 0
     },
     light: {
-      scale: 1
+      scale: 1,
+      opacity: 1
     }
   };
   // maskedCircle
