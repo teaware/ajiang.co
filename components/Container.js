@@ -143,6 +143,7 @@ export default function Container(props) {
                 fill="currentColor"
                 variants={vRotate}
                 transition={trans}
+                style={{ originX: '12px', originY: '12px' }}
                 className="h-6 w-6 text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-white"
               >
                 <mask id="moon-mask">
