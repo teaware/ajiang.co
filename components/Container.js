@@ -36,10 +36,10 @@ export default function Container(props) {
   };
   const vRotate = {
     dark: {
-      rotate: 0
+      rotate: 40
     },
     light: {
-      rotate: 45
+      rotate: 90
     }
   };
   const vLine = {
@@ -53,8 +53,8 @@ export default function Container(props) {
   // maskedCircle
   const vMCircle = {
     dark: {
-      cx: 18,
-      cy: 6
+      cx: 12,
+      cy: 4
     },
     light: {
       cx: 30,
@@ -71,7 +71,7 @@ export default function Container(props) {
     }
   };
 
-  // if (!mounted) return null;
+  if (!mounted) return null;
 
   return (
     <>
@@ -150,8 +150,8 @@ export default function Container(props) {
                   <motion.circle
                     variants={vMCircle}
                     transition={trans}
-                    cx="18"
-                    cy="6"
+                    cx="12"
+                    cy="4"
                     r="9"
                     fill="black"
                   />
