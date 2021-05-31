@@ -93,7 +93,7 @@ export default function Blog({ posts }) {
           </>
         )}
         <h3 className="font-bold text-2xl md:text-4xl tracking-tight mb-4 mt-8 text-black dark:text-white">
-          All Posts
+          {searchValue ? 'Result' : 'All Posts'}
         </h3>
         {!filteredBlogPosts.length && 'No posts found.'}
         {filteredBlogPosts.map((frontMatter) => (

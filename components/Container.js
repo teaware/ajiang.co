@@ -98,7 +98,7 @@ export default function Container(props) {
         <meta name="viewport" content="initial-scale=1, viewport-fit=cover" />
       </Head>
 
-      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-white dark:text-white dark:bg-gray-700">
+      <div className="flex flex-col w-full min-h-screen font-sans text-base antialiased text-gray-800 bg-gray-100 dark:text-white dark:bg-gray-700">
         <nav className="absolute top-0 left-1/2 transform -translate-x-1/2 flex justify-between items-center text-base w-full max-w-2xl px-5 py-4 mt-safe-top z-10">
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
