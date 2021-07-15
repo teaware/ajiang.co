@@ -5,8 +5,8 @@ module.exports = {
   reactStrictMode: true,
   images: {
     domains: [
-      'i.scdn.co', // Spotify Album Art
-      'images.unsplash.com' // Unsplash Images
+      'i.scdn.co' // Spotify Album Art
+      // 'images.unsplash.com' // Unsplash Images
       // 'pbs.twimg.com' // Twitter Profile Picture
     ]
   },
