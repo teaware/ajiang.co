@@ -2,8 +2,8 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import Link from 'next/link';
 import useSound from 'use-sound';
+import ActiveLink from './ActiveLink';
 
 import { motion } from 'framer-motion';
 
@@ -103,28 +103,7 @@ export default function Container(props) {
           <a href="#skip" className="sr-only focus:not-sr-only">
             Skip to content
           </a>
-          <div className="font-bold">
-            <Link href="/">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                Home
-              </a>
-            </Link>
-            <Link href="/projects">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                Projects
-              </a>
-            </Link>
-            <Link href="/blog">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                Blog
-              </a>
-            </Link>
-            <Link href="/about">
-              <a className="pr-4 text-gray-600 dark:text-gray-100 hover:underline">
-                About
-              </a>
-            </Link>
-          </div>
+          <DesktopNav />
 
           <motion.div
             initial={theme === 'dark' ? 'dark' : 'light'}
@@ -193,5 +172,29 @@ export default function Container(props) {
         <main id="skip">{children}</main>
       </div>
     </>
+  );
+}
+
+function DesktopNav() {
+  return (
+    <div className="font-bold">
+      <DesktopNavLink to="/">Home</DesktopNavLink>
+      <DesktopNavLink to="/projects">Projects</DesktopNavLink>
+      <DesktopNavLink to="/blog">Blog</DesktopNavLink>
+      <DesktopNavLink to="/about">About</DesktopNavLink>
+    </div>
+  );
+}
+
+function DesktopNavLink({ to, children }) {
+  return (
+    <ActiveLink href={to} activeClassName="text-gray-900 dark:text-gray-50">
+      <a className="pr-4 text-gray-600 dark:text-gray-200 hover:underline"
+        // activeClassName="text-gray-900 dark:text-gray-50"
+        // partiallyActive={true}
+        >
+        {children}
+      </a>
+    </ActiveLink>
   );
 }
