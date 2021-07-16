@@ -189,10 +189,11 @@ function DesktopNav() {
 function DesktopNavLink({ to, children }) {
   return (
     <ActiveLink href={to} activeClassName="text-gray-900 dark:text-gray-50">
-      <a className="pr-4 text-gray-600 dark:text-gray-200 hover:underline"
+      <a
+        className="pr-4 text-gray-600 dark:text-gray-200 hover:underline"
         // activeClassName="text-gray-900 dark:text-gray-50"
         // partiallyActive={true}
-        >
+      >
         {children}
       </a>
     </ActiveLink>
