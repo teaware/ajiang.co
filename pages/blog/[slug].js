@@ -7,7 +7,7 @@ import MDXComponents from '@/components/MDXComponents';
 export default function Post({ mdxSource, frontMatter }) {
   return (
     <BlogLayout frontMatter={frontMatter}>
-      <MDXRemote {...mdxSource} components={...MDXComponents} />
+      <MDXRemote {...mdxSource} components={{ ...MDXComponents }} />
     </BlogLayout>
   );
 }
