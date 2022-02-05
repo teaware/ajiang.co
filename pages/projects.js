@@ -44,7 +44,7 @@ export default function Projects() {
             <div className="md:flex md:-mx-4">
               <div className="mt-12 md:w-1/2 md:mx-4">
                 <a
-                  href="https://3d.ajiang.co/"
+                  href="https://3d.ajiang.co/fox"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -83,12 +83,12 @@ export default function Projects() {
                     Tie Fighter
                   </PastProjectCard>
                 </div>
-                {/* <div className="w-full px-2 md:w-1/3">
-                  <PastProjectCard href="https://3d.ajiang.co/tie-fighter">
-                    Tie Fighter
+                <div className="w-full px-2 md:w-1/3">
+                  <PastProjectCard href="https://3d.ajiang.co/">
+                    Moon
                   </PastProjectCard>
                 </div>
-                <div className="w-full px-2 md:w-1/3">
+                {/* <div className="w-full px-2 md:w-1/3">
                   <PastProjectCard href="https://3d.ajiang.co/tie-fighter">
                     Tie Fighter
                   </PastProjectCard>

@@ -24,43 +24,7 @@ export default function Blog({ posts }) {
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4 md:mt-8">
           Blog
         </h1>
-        <p className="mb-4">
-          第一次写博客大概是2010年（或者更早），许多平台都有涉及，但是更新不多
-        </p>
-        <p className="mb-4">目前还在线上的有这些...</p>
-        <ul className="mb-4">
-          <li>
-            <a
-              className="dark:text-gray-100 pb-1"
-              href="https://teaware.wordpress.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              wordpress
-            </a>
-          </li>
-          <li>
-            <a
-              className="dark:text-gray-100 pb-1"
-              href="https://veryben.tumblr.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              tumblr
-            </a>
-          </li>
-          <li>
-            <a
-              className="dark:text-gray-100 pb-1"
-              href="https://blog.ajiang.co"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              gatsby
-            </a>
-          </li>
-        </ul>
-        <p className="mb-4">{`共 ${posts.length} 篇文章`}</p>
+        <p className="mb-4">{`总共 ${posts.length} 篇`}</p>
         <div className="relative w-full mb-4">
           <input
             aria-label="Search articles"
