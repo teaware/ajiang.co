@@ -36,11 +36,10 @@ export default function Projects() {
   return (
     <Container title="Projects – 阿江" description="个人项目">
       <div className="flex flex-col justify-center items-start max-w-2xl px-5 pt-safe-top mx-auto my-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4 md:mt-8">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-8 md:mt-8">
           Projects
         </h1>
-        <p>部分开源项目</p>
-        <div className="w-full grid grid-cols-1 mt-4 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:gap-x-8">
+        <div className="w-full grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:gap-x-8">
           {images.map((image) => (
             <BlurImage key={image.id} image={image} />
           ))}
