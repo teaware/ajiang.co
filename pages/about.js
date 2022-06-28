@@ -7,7 +7,6 @@ export default function About() {
         <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-4 md:mt-8">
           About
         </h1>
-        <p className="mb-4">我本花一朵🌷</p>
         <p className="mb-4">看深夜食堂会泪流满面😭</p>
         <p className="mb-4">不是因为感动，实在是太馋了</p>
       </div>
