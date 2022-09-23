@@ -1,12 +1,14 @@
-import useSWR from 'swr';
-import fetcher from '@/lib/fetcher';
-import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { useState } from 'react'
+import useSWR from 'swr'
+import fetcher from '@/lib/fetcher'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
 export default function TopTracks() {
-  const { data, error } = useSWR('/api/top-tracks', fetcher);
+  const { data, error } = useSWR('/api/top-tracks', fetcher)
 
-  const isLoading = !data && !error;
+  const isLoading = !data && !error
+  const [loadingImage, setLoadingImage] = useState(true)
 
   return (
     <div className="my-4 lg:my-8">
@@ -22,7 +24,7 @@ export default function TopTracks() {
               className="animate-pulse"
               style={{
                 animationFillMode: 'backwards',
-                animationDelay: '150ms'
+                animationDelay: '150ms',
               }}
             >
               <SkeletonTrack type="short" />
@@ -33,7 +35,7 @@ export default function TopTracks() {
               className="animate-pulse"
               style={{
                 animationFillMode: 'backwards',
-                animationDelay: '300ms'
+                animationDelay: '300ms',
               }}
             >
               <SkeletonTrack type="long" />
@@ -47,15 +49,15 @@ export default function TopTracks() {
               variants={{
                 hidden: (i) => ({
                   opacity: 0,
-                  y: -50 * i
+                  y: -50 * i,
                 }),
                 visible: (i) => ({
                   opacity: 1,
                   y: 0,
                   transition: {
-                    delay: i * 0.025
-                  }
-                })
+                    delay: i * 0.025,
+                  },
+                }),
               }}
               initial="hidden"
               animate="visible"
@@ -72,11 +74,17 @@ export default function TopTracks() {
                 >
                   <div className="w-16 h-16 shadow-lg relative">
                     <Image
-                      className="rounded-sm"
                       alt="Spotify"
                       layout="fill"
                       objectFit="cover"
                       src={track.albumImageUrl}
+                      className={cn(
+                        'group-hover:opacity-75 duration-700 ease-in-out rounded-sm',
+                        loadingImage
+                          ? 'grayscale blur-2xl scale-110'
+                          : 'grayscale-0 blur-0 scale-100'
+                      )}
+                      onLoadingComplete={() => setLoadingImage(false)}
                     />
                   </div>
                 </a>
@@ -99,7 +107,7 @@ export default function TopTracks() {
         </>
       )}
     </div>
-  );
+  )
 }
 
 function SkeletonTrack({ type = 'short' }) {
@@ -123,5 +131,5 @@ function SkeletonTrack({ type = 'short' }) {
         </div>
       </div>
     </div>
-  );
+  )
 }

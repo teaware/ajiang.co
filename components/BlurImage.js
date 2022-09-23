@@ -1,12 +1,12 @@
-import Image from 'next/image';
-import { useState } from 'react';
+import Image from 'next/image'
+import { useState } from 'react'
 
 function cn(...classes) {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(' ')
 }
 
 export function BlurImage({ image }) {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(true)
   return (
     <a href={image.href} className="group">
       <div className="w-full aspect-w-8 aspect-h-5 bg-gray-200 rounded-lg overflow-hidden md:aspect-w-1 md:aspect-h-1 xl:aspect-w-8 xl:aspect-h-5">
@@ -27,5 +27,5 @@ export function BlurImage({ image }) {
       <h3 className="mt-4 text-md font-medium">{image.name}</h3>
       <p className="mt-1 text-sm ">{image.info}</p>
     </a>
-  );
+  )
 }
