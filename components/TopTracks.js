@@ -9,6 +9,9 @@ export default function TopTracks() {
 
   const isLoading = !data && !error
   const [loadingImage, setLoadingImage] = useState(true)
+  function cn(...classes) {
+    return classes.filter(Boolean).join(' ')
+  }
 
   return (
     <div className="my-4 lg:my-8">
