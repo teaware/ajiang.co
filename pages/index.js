@@ -1,5 +1,5 @@
-import Container from '@/components/Container';
-import Playing from '@/components/Playing';
+import Container from '@/components/Container'
+import Playing from '@/components/Playing'
 
 export default function Home() {
   return (
@@ -13,7 +13,7 @@ export default function Home() {
             <p className="block self-end ml-auto text-xl font-mono">flows</p>
           </div>
           <svg
-            className="absolute bottom-0 left-0 block w-full h-20 lg:h-40 max-h-screen fill-current text-green-600 dark:text-green-900"
+            className="absolute bottom-0 left-0 block w-full h-20 lg:h-40 max-h-screen fill-current text-emerald-600 dark:text-emerald-900"
             xmlns="http://www.w3.org/2000/svg"
             xmlnsXlink="http://www.w3.org/1999/xlink"
             viewBox="0 24 150 28"
@@ -35,12 +35,12 @@ export default function Home() {
             </g>
           </svg>
         </div>
-        <div className="h-1/4 bg-green-600 dark:bg-green-900 -mt-px pb-px box-content relative">
+        <div className="h-1/4 bg-emerald-600 dark:bg-emerald-900 -mt-px pb-px box-content relative">
           <div className="absolute left-1/2 -top-12 transform -translate-x-1/2">
             <Playing />
           </div>
         </div>
       </div>
     </Container>
-  );
+  )
 }

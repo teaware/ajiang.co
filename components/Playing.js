@@ -1,10 +1,10 @@
-import Image from 'next/image';
-import useSWR from 'swr';
+import Image from 'next/image'
+import useSWR from 'swr'
 
-import fetcher from '@/lib/fetcher';
+import fetcher from '@/lib/fetcher'
 
 export default function Playing() {
-  const { data } = useSWR('/api/playing', fetcher);
+  const { data } = useSWR('/api/playing', fetcher)
 
   return (
     <div className="flex items-start border border-gray-300 dark:border-gray-100 rounded-lg w-72 p-2 my-4">
@@ -41,5 +41,5 @@ export default function Playing() {
         />
       </svg>
     </div>
-  );
+  )
 }
