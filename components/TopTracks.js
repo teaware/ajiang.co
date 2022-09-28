@@ -1,17 +1,12 @@
-import { useState } from 'react'
 import useSWR from 'swr'
 import fetcher from '@/lib/fetcher'
-import Image from 'next/image'
+import { BlurImage } from './BlurImage'
 import { motion } from 'framer-motion'
 
 export default function TopTracks() {
   const { data, error } = useSWR('/api/top-tracks', fetcher)
 
   const isLoading = !data && !error
-  const [loadingImage, setLoadingImage] = useState(true)
-  function cn(...classes) {
-    return classes.filter(Boolean).join(' ')
-  }
 
   return (
     <div className="my-4 lg:my-8">
@@ -76,19 +71,7 @@ export default function TopTracks() {
                   rel="noopener noreferrer"
                 >
                   <div className="w-16 h-16 shadow-lg relative">
-                    <Image
-                      alt="Spotify"
-                      layout="fill"
-                      objectFit="cover"
-                      src={track.albumImageUrl}
-                      className={cn(
-                        'group-hover:opacity-75 duration-700 ease-in-out rounded-sm',
-                        loadingImage
-                          ? 'grayscale blur-2xl scale-110'
-                          : 'grayscale-0 blur-0 scale-100'
-                      )}
-                      onLoadingComplete={() => setLoadingImage(false)}
-                    />
+                    <BlurImage alt={track.title} src={track.albumImageUrl} />
                   </div>
                 </a>
               </div>

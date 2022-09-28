@@ -5,12 +5,11 @@ summary: '学习如何使用 Framer Motion 创造 SVG 动画，让「黑暗模�
 image: '/img/using-framer-motion-to-animate-svg-icon/banner.png'
 ---
 
-<Image
+<BlurImage
   alt={`Dark Mode Toggle`}
   src={`/img/using-framer-motion-to-animate-svg-icon/banner.png`}
   width={1280}
   height={640}
-  priority
 />
 
 > inspired by this [blog post](https://jfelix.info/blog/using-react-spring-to-animate-svg-icons-dark-mode-toggle)
@@ -162,38 +161,38 @@ yarn add framer-motion
 const vMCircle = {
   dark: {
     cx: 12,
-    cy: 4
+    cy: 4,
   },
   light: {
     cx: 30,
-    cy: 0
-  }
-};
+    cy: 0,
+  },
+}
 // centerCircle
 const vCCircle = {
   dark: {
-    r: 9
+    r: 9,
   },
   light: {
-    r: 5
-  }
-};
+    r: 5,
+  },
+}
 const vRotate = {
   dark: {
-    rotate: 40
+    rotate: 40,
   },
   light: {
-    rotate: 90
-  }
-};
+    rotate: 90,
+  },
+}
 const vLine = {
   dark: {
-    scale: 0
+    scale: 0,
   },
   light: {
-    scale: 1
-  }
-};
+    scale: 1,
+  },
+}
 ```
 
 你可能已经注意到，在 dark 模式下，我们将图标旋转到 40° 而不是 0°，样做是为了使动画从头到尾看起来更好。
@@ -205,8 +204,8 @@ const trans = {
   type: 'spring',
   damping: 10,
   mass: 0.75,
-  stiffness: 100
-};
+  stiffness: 100,
+}
 ```
 
 全部放到一起，用 `motion` 触发动画

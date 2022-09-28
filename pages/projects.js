@@ -1,5 +1,5 @@
-import Container from '@/components/Container';
-import { BlurImage } from '@/components/BlurImage';
+import Container from '@/components/Container'
+import { BlurImage } from '@/components/BlurImage'
 
 const images = [
   {
@@ -7,30 +7,30 @@ const images = [
     href: 'https://photos.ajiang.co/',
     imageSrc: '/img/projects/photos.png',
     name: 'Photos',
-    info: 'A Photo Gallery'
+    info: 'A Photo Gallery',
   },
   {
     id: 2,
     href: 'https://pokedex.ajiang.co/',
     imageSrc: '/img/projects/pokedex.png',
     name: 'Pokedex',
-    info: "Catch'em All"
+    info: "Catch'em All",
   },
   {
     id: 3,
     href: 'https://3d.ajiang.co/fox',
     imageSrc: '/img/projects/3d.png',
     name: 'Fox',
-    info: 'A 3D Fox'
+    info: 'A 3D Fox',
   },
   {
     id: 4,
     href: 'https://starter-point.vercel.app/',
     imageSrc: '/img/projects/blog_starter.png',
     name: 'Starter Point',
-    info: 'A Blog Starter for Gatsby'
-  }
-];
+    info: 'A Blog Starter for Gatsby',
+  },
+]
 
 export default function Projects() {
   return (
@@ -41,7 +41,17 @@ export default function Projects() {
         </h1>
         <div className="w-full grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:gap-x-8">
           {images.map((image) => (
-            <BlurImage key={image.id} image={image} />
+            <a
+              key={image.id}
+              href={image.href}
+              className="transition ease-in-out hover:scale-105 "
+            >
+              <div className="w-full aspect-w-8 aspect-h-5 bg-gray-200 rounded-lg overflow-hidden md:aspect-w-1 md:aspect-h-1 xl:aspect-w-8 xl:aspect-h-5">
+                <BlurImage alt={image.name} src={image.imageSrc} />
+              </div>
+              <h3 className="mt-4 text-md font-medium">{image.name}</h3>
+              <p className="mt-1 text-sm ">{image.info}</p>
+            </a>
           ))}
         </div>
         <div className="w-full mt-16 mb-32 md:mt-24">
@@ -61,7 +71,7 @@ export default function Projects() {
         </div>
       </div>
     </Container>
-  );
+  )
 }
 
 const PastProjectCard = (props) => (
@@ -73,4 +83,4 @@ const PastProjectCard = (props) => (
   >
     <p>{props.children}</p>
   </a>
-);
+)

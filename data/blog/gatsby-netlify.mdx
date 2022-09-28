@@ -1,16 +1,15 @@
 ---
-title: "利用 Gatsby 和 Netlify 搭建一个无限滚动图片合集"
-publishedAt: "2019-08-21"
-summary: "Gatsby 非常方便开箱即用，不仅可以搭建网页还可以开发灵活小巧的 app"
-image: "/img/gatsby-netlify/banner.png"
+title: '利用 Gatsby 和 Netlify 搭建一个无限滚动图片合集'
+publishedAt: '2019-08-21'
+summary: 'Gatsby 非常方便开箱即用，不仅可以搭建网页还可以开发灵活小巧的 app'
+image: '/img/gatsby-netlify/banner.png'
 ---
 
-<Image
+<BlurImage
   alt={`Catify`}
   src={`/img/gatsby-netlify/banner.png`}
   width={2558}
   height={1444}
-  priority
 />
 
 ( [Demo](https://catify.netlify.com/) || [Code](https://github.com/teaware/catify) )
@@ -90,11 +89,11 @@ gatsby develop
 页面布局会被视作一个可复用部件来开发。 `components/layout.js` 文件目前输出的是 Gatsby 默认起始页的布局。我们删除它原来的所有内容，引入我们需要的东西
 
 ```jsx
-import React from "react";
-import PropTypes from "prop-types";
-import { useStaticQuery, graphql } from "gatsby";
+import React from 'react'
+import PropTypes from 'prop-types'
+import { useStaticQuery, graphql } from 'gatsby'
 
-import Header from "./header";
+import Header from './header'
 ```
 
 这里我们引入了 React, prop-types, useStaticQuery 和 GraphQL 其中 useStaticQuery 是在 Gatsby v2 版本才引进的，正因如此使得我们可以在非页面部件之间使用 GraphQL 数据请求。这些数据获取是静态的且发生在构建过程中，所以使用静态查询（Static Query）这个术语。
@@ -111,7 +110,7 @@ const Layout = ({ children }) => {
         }
       }
     }
-  `);
+  `)
 
   return (
     <>
@@ -127,14 +126,14 @@ const Layout = ({ children }) => {
         <main>{children}</main>
       </div>
     </>
-  );
-};
+  )
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-};
+}
 
-export default Layout;
+export default Layout
 ```
 
 这里 `useStaticQuery` 用于从 siteMetadata 获取页面标题，`siteTitle` 随即作为参数从 header 部件传递过来。
@@ -151,18 +150,18 @@ siteMetadata: {
 现在编辑 `components/header.js` 文件
 
 ```jsx
-import { Link } from "gatsby";
-import React from "react";
+import { Link } from 'gatsby'
+import React from 'react'
 
 const Header = ({ siteTitle }) => (
   <header>
-    <nav className="navbar is-dark" style={{ marginBottom: "2em" }}>
+    <nav className="navbar is-dark" style={{ marginBottom: '2em' }}>
       <div className="navbar-brand">
         <Link
           to="/"
           style={{
-            margin: "0 auto",
-            padding: "10px",
+            margin: '0 auto',
+            padding: '10px',
           }}
           className="has-text-white is-size-3"
         >
@@ -171,9 +170,9 @@ const Header = ({ siteTitle }) => (
       </div>
     </nav>
   </header>
-);
+)
 
-export default Header;
+export default Header
 ```
 
 ### 创建新页面
@@ -196,18 +195,18 @@ import "bulma/css/bulma.min.css";
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div className="has-text-centered" style={{ marginTop: "20%" }}>
+    <div className="has-text-centered" style={{ marginTop: '20%' }}>
       <h1 className="is-size-2">欢迎光临！...喵的世界😹</h1>
-      <button className="button is-dark is-large" style={{ marginTop: "10%" }}>
+      <button className="button is-dark is-large" style={{ marginTop: '10%' }}>
         <Link to="/gallery" className="has-text-white">
           OK 👌
         </Link>
       </button>
     </div>
   </Layout>
-);
+)
 
-export default IndexPage;
+export default IndexPage
 ```
 
 我们使用了 Bulma 内建的 class 名称来定义样式
@@ -217,24 +216,24 @@ export default IndexPage;
 在同一路径 `src/pages` 下，新建一个 `gallery.js` 文件。与首页类似，我们引入然后导出...
 
 ```jsx
-import React from "react";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import InfiniteImages from "../components/InfiniteImages";
+import React from 'react'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import InfiniteImages from '../components/InfiniteImages'
 
 const Gallery = () => {
   return (
     <Layout>
       <SEO title="Gallery" />
-      <h1 className="is-size-5" style={{ marginBottom: "1.0875rem" }}>
+      <h1 className="is-size-5" style={{ marginBottom: '1.0875rem' }}>
         如今的丛林法则，就像古老而又真实的天空，是这样的，越往下翻，你就会看到越多猫咪😹😹😹
       </h1>
       <InfiniteImages />
     </Layout>
-  );
-};
+  )
+}
 
-export default Gallery;
+export default Gallery
 ```
 
 ### 创建图片集
@@ -244,9 +243,9 @@ export default Gallery;
 在 `src/components` 路径下新建文件 `InfiniteImages.js`
 
 ```jsx
-import React from "react";
-import PropTypes from "prop-types";
-import InfiniteScroll from "react-infinite-scroll-component";
+import React from 'react'
+import PropTypes from 'prop-types'
+import InfiniteScroll from 'react-infinite-scroll-component'
 ```
 
 这个图片集我们需要两个部件
@@ -266,12 +265,12 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
       next={() => fetchImages()}
       hasMore={true}
       loader={
-        <p style={{ textAlign: "center", marginTop: "1%" }}>
+        <p style={{ textAlign: 'center', marginTop: '1%' }}>
           更多阿猫要来了 🐈🐈...
         </p>
       }
       endMessage={
-        <p style={{ textAlign: "center", marginTop: "1%" }}>
+        <p style={{ textAlign: 'center', marginTop: '1%' }}>
           <b>没了没了😸</b>
         </p>
       }
@@ -287,11 +286,11 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
                 <img src={image.urls.regular} alt={image.alt_description} />
               </div>
             ))
-          : ""}
+          : ''}
       </div>
     </InfiniteScroll>
-  );
-};
+  )
+}
 ```
 
 在相同路径下，我们新建一个 `gallery.css` 文件来定义图片集的样式
@@ -321,15 +320,15 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
 然后把它引入到 `InfiniteImages.js` 文件
 
 ```jsx
-import "./gallery.css";
+import './gallery.css'
 ```
 
 接下来我们在 `InfiniteImages.js` 文件中创建一个名为 `InfiniteImages` 的部件
 这个部件会用到 React 的 `useState` 和 `useEffect` 钩子来处理状态和生命周期。Axios 也会被用于发起 HTTP 请求。需要引入它们。
 
 ```jsx
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 ```
 
 引入之后，完成定义 `InfiniteImages` 部件：
@@ -337,25 +336,25 @@ import axios from "axios";
 ```jsx
 const InfiniteImages = () => {
   // Hold state
-  const [images, setImages] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [images, setImages] = useState([])
+  const [loading, setLoading] = useState(true)
 
   // Fetch images on component mount
   useEffect(() => {
-    fetchImages();
-  }, []);
+    fetchImages()
+  }, [])
 
   // Fetch Images from functions
   const fetchImages = () => {
-    axios("/.netlify/functions/fetch").then((res) => {
-      setImages([...images, ...res.data.images]);
-      setLoading(false);
-    });
-  };
+    axios('/.netlify/functions/fetch').then((res) => {
+      setImages([...images, ...res.data.images])
+      setLoading(false)
+    })
+  }
   return (
     <ImageGallery images={images} loading={loading} fetchImages={fetchImages} />
-  );
-};
+  )
+}
 ```
 
 指定 `ImageGallery` 的参数类型（Prototypes）并 export `InfiniteImage`
@@ -405,14 +404,14 @@ npm i -g netlify-lambda
 然后 `src/lambda` 下新建 `fetch.js`
 
 ```jsx
-import axios from "axios";
-import config from "../../config";
+import axios from 'axios'
+import config from '../../config'
 
 exports.handler = function (event, context, callback) {
-  const apiRoot = "https://api.unsplash.com";
-  const accessKey = process.env.ACCESS_KEY || config.accessKey;
+  const apiRoot = 'https://api.unsplash.com'
+  const accessKey = process.env.ACCESS_KEY || config.accessKey
 
-  const catEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='4365121,1043053'`;
+  const catEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='4365121,1043053'`
 
   axios.get(catEndpoint).then((res) => {
     callback(null, {
@@ -420,19 +419,19 @@ exports.handler = function (event, context, callback) {
       body: JSON.stringify({
         images: res.data,
       }),
-    });
-  });
-};
+    })
+  })
+}
 ```
 
 在根目录新建 `config.js` 文件保存从 Unsplash 生成的 API 密钥
 
 ```jsx
 const config = {
-  accessKey: "<Add access key>",
-};
+  accessKey: '<Add access key>',
+}
 
-export default config;
+export default config
 ```
 
 确保你把该文件添加到 `.gitignore` 以免被添加到你的 repo
@@ -460,7 +459,7 @@ npm i --save-dev http-proxy-middleware
 在 `gatsby-config.js` 中
 
 ```jsx
-let proxy = require("http-proxy-middleware");
+let proxy = require('http-proxy-middleware')
 
 module.exports = {
   siteMetadata: {
@@ -469,17 +468,17 @@ module.exports = {
   // Enables the use of function URLs locally
   developMiddleware: (app) => {
     app.use(
-      "/.netlify/functions/",
+      '/.netlify/functions/',
       proxy({
-        target: "http://localhost:9000",
-        pathRewrite: { "/.netlify/functions/": "" },
+        target: 'http://localhost:9000',
+        pathRewrite: { '/.netlify/functions/': '' },
       })
-    );
+    )
   },
   plugins: [
     // define plugins
   ],
-};
+}
 ```
 
 然后在 `src/components/InfiniteImages.js` 中

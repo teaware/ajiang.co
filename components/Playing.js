@@ -1,30 +1,16 @@
-import { useState } from 'react'
-import Image from 'next/image'
+import { BlurImage } from './BlurImage'
 import useSWR from 'swr'
 
 import fetcher from '@/lib/fetcher'
-function cn(...classes) {
-  return classes.filter(Boolean).join(' ')
-}
 
 export default function Playing() {
   const { data } = useSWR('/api/playing', fetcher)
-  const [isLoading, setLoading] = useState(true)
   return (
     <div className="flex items-start border border-gray-300 dark:border-gray-100 rounded-lg w-80 p-2 gap-2">
       <div className="rounded-md w-16 h-16 overflow-hidden relative">
-        <Image
-          alt="Spotify"
+        <BlurImage
+          alt={data?.title || 'Spotify'}
           src={data?.albumImageUrl || '/img/me.jpg'}
-          layout="fill"
-          objectFit="cover"
-          className={cn(
-            'group-hover:opacity-75 duration-700 ease-in-out rounded-md',
-            isLoading
-              ? 'grayscale blur-2xl scale-110'
-              : 'grayscale-0 blur-0 scale-100'
-          )}
-          onLoadingComplete={() => setLoading(false)}
         />
       </div>
       <div className="flex-1 text-gray-800 dark:text-gray-100">
