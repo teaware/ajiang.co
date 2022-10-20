@@ -4,7 +4,7 @@
   "endOfLine": "lf",
   "trailingComma": "es5",
   "printWidth": 80,
-  "arrowParens": "always",
+  "arrowParens": "avoid",
   "semi": false,
   "bracketSpacing": true,
   "overrides": [

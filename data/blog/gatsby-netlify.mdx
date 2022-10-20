@@ -181,12 +181,12 @@ export default Header
 
 在 `src/pages/index.js` 文件中删除原有的代码引入依赖项
 
-```jsx{5}
-import React from "react";
-import { Link } from "gatsby";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import "bulma/css/bulma.min.css";
+```jsx {5}
+import React from 'react'
+import { Link } from 'gatsby'
+import Layout from '../components/layout'
+import SEO from '../components/seo'
+import 'bulma/css/bulma.min.css'
 ```
 
 注意 Bulma 样式文件的引入方式，接下来定义此部件的导出部分
@@ -277,7 +277,7 @@ const ImageGallery = ({ images, loading, fetchImages }) => {
     >
       <div className="image-grid">
         {!loading
-          ? images.map((image) => (
+          ? images.map(image => (
               <div
                 className="image-item"
                 key={image.id}
@@ -346,7 +346,7 @@ const InfiniteImages = () => {
 
   // Fetch Images from functions
   const fetchImages = () => {
-    axios('/.netlify/functions/fetch').then((res) => {
+    axios('/.netlify/functions/fetch').then(res => {
       setImages([...images, ...res.data.images])
       setLoading(false)
     })
@@ -413,7 +413,7 @@ exports.handler = function (event, context, callback) {
 
   const catEndpoint = `${apiRoot}/photos/random?client_id=${accessKey}&count=${10}&collections='4365121,1043053'`
 
-  axios.get(catEndpoint).then((res) => {
+  axios.get(catEndpoint).then(res => {
     callback(null, {
       statusCode: 200,
       body: JSON.stringify({
@@ -466,7 +466,7 @@ module.exports = {
     // define site metadata
   },
   // Enables the use of function URLs locally
-  developMiddleware: (app) => {
+  developMiddleware: app => {
     app.use(
       '/.netlify/functions/',
       proxy({

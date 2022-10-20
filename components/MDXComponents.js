@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { BlurImage } from './BlurImage'
 
-const CustomLink = (props) => {
+const CustomLink = props => {
   const href = props.href
   const isInternalLink = href && (href.startsWith('/') || href.startsWith('#'))
 
