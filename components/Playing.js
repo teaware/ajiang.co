@@ -16,7 +16,7 @@ export default function Playing() {
       <div className="flex-1 max-w-[206px] text-gray-800 dark:text-gray-100">
         {data?.songUrl ? (
           <a
-            className="font-medium max-w-[206px] truncate"
+            className="block font-medium max-w-[206px] truncate"
             href={data.songUrl}
             target="_blank"
             rel="noopener noreferrer"
