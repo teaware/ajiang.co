@@ -16,7 +16,7 @@ export default function Playing() {
       <div className="flex-1 max-w-[206px] text-gray-800 dark:text-gray-100">
         {data?.songUrl ? (
           <a
-            className="font-medium truncate"
+            className="font-medium max-w-[206px] truncate"
             href={data.songUrl}
             target="_blank"
             rel="noopener noreferrer"
@@ -24,9 +24,9 @@ export default function Playing() {
             {data.title}
           </a>
         ) : (
-          <p className="font-medium truncate ">Not Playing</p>
+          <p className="font-medium">Not Playing</p>
         )}
-        <p className="dark:text-gray-300 text-sm truncate">
+        <p className="dark:text-gray-300 text-sm max-w-[206px] truncate">
           {data?.artist ?? 'Spotify'}
         </p>
       </div>
