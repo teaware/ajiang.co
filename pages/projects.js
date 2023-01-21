@@ -36,11 +36,11 @@ export default function Projects() {
   return (
     <Container title="Projects – 阿江" description="个人项目">
       <div className="flex flex-col justify-center items-start max-w-2xl px-5 pt-safe-top mx-auto my-16">
-        <h1 className="font-bold text-3xl md:text-5xl tracking-tight my-8 md:mt-8">
+        <h1 className="font-bold text-3xl md:text-5xl tracking-tight mt-4 mb-8 md:mt-8">
           Projects
         </h1>
         <div className="w-full grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-2 xl:gap-x-8">
-          {images.map((image) => (
+          {images.map(image => (
             <a
               key={image.id}
               href={image.href}
@@ -74,7 +74,7 @@ export default function Projects() {
   )
 }
 
-const PastProjectCard = (props) => (
+const PastProjectCard = props => (
   <a
     className="flex items-center justify-center h-24 px-4 mt-4 font-medium leading-snug text-center text-gray-500 bg-white rounded shadow hover:text-gray-700"
     href={props.href}
