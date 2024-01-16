@@ -1,5 +1,4 @@
 import Container from '@/components/Container'
-import Playing from '@/components/Playing'
 
 export default function Home() {
   return (
@@ -35,11 +34,7 @@ export default function Home() {
             </g>
           </svg>
         </div>
-        <div className="h-1/4 bg-emerald-600 dark:bg-emerald-900 -mt-px pb-px box-content relative">
-          <div className="absolute left-1/2 -top-12 transform -translate-x-1/2">
-            <Playing />
-          </div>
-        </div>
+        <div className="h-1/4 bg-emerald-600 dark:bg-emerald-900 -mt-px pb-px box-content"></div>
       </div>
     </Container>
   )
