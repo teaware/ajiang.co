@@ -8,8 +8,7 @@ export default function About() {
           About
         </h1>
         <p className="mb-4">默默无闻的海獭🦦</p>
-        <p className="mb-4">看深夜食堂会泪流满面😭</p>
-        <p className="mb-4">不是因为感动，实在是太馋了</p>
+        <p className="mb-4">每次看深夜食堂 眼泪都会不争气地从嘴角流下来</p>
       </div>
     </Container>
   )
